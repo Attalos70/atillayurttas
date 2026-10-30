@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atilla Yurttaş — Professional Tour Guide and Photographer based in Türkiye.">
+    <title>Atilla Yurttaş | Tour Guide & Photographer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111110;
+            color: #f5f2eb;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 8%;
+            border-bottom: 1px solid #33332f;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #d0cec6;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .eyebrow {
+            color: #c4a77d;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(42px, 7vw, 88px);
+            font-weight: normal;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #c3c0b8;
+            max-width: 560px;
+            font-size: 17px;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 27px;
+            border: 1px solid #c4a77d;
+            color: #c4a77d;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 12px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: #c4a77d;
+            color: #111110;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 70px 20px;
+            background-color: #1b1b19;
+        }
+
+        .intro h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: normal;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            max-width: 650px;
+            margin: auto;
+            color: #c3c0b8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #88877f;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 18px;
+                padding: 22px 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 11px;
+            }
+
+            .hero {
+                min-height: 65vh;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">ATILLA YURTTAŞ</div>
+
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#photography">PHOTOGRAPHY</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="eyebrow">Türkiye · Tour Guide · Photographer</div>
+
+            <h1>Stories Behind<br>Every Journey.</h1>
+
+            <p>
+                Exploring places, capturing moments and sharing the stories
+                that connect people with history, culture and life.
+            </p>
+
+            <a href="#about" class="button">Discover My Story</a>
+        </section>
+
+        <section class="intro" id="about">
+            <h2>A Life Between Places & Stories</h2>
+
+            <p>
+                I am Atilla Yurttaş, a professional tour guide based in Türkiye.
+                Through guiding and photography, I explore the relationship
+                between people, places and the stories they hold.
+            </p>
+        </section>
+
+        <section class="intro" id="photography">
+            <h2>Photography</h2>
+
+            <p>
+                A personal collection of people, places, light and everyday
+                moments — seen through my own perspective.
+            </p>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>© 2026 Atilla Yurttaş · Tour Guide & Photographer</p>
+    </footer>
+
+</body>
+</html>
