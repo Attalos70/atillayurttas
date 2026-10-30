@@ -1,218 +1,293 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Atilla Yurttaş — Professional Tour Guide and Photographer based in Türkiye.">
-    <title>Atilla Yurttaş | Tour Guide & Photographer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Atilla Yurttaş — documentary photography, visual stories and professional tour guiding in Türkiye.">
+  <title>Atilla Yurttaş | Photography & Visual Stories</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    :root {
+      --bg: #111110;
+      --surface: #1b1b19;
+      --text: #f5f2eb;
+      --muted: #c3c0b8;
+      --accent: #c4a77d;
+    }
 
-        body {
-            background-color: #111110;
-            color: #f5f2eb;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 28px 8%;
-            border-bottom: 1px solid #33332f;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
 
-        nav a {
-            color: #d0cec6;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      padding: 25px 7%;
+      border-bottom: 1px solid #33332f;
+    }
 
-        nav a:hover {
-            color: white;
-        }
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
 
-        .hero {
-            min-height: 75vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 80px 20px;
-        }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
 
-        .eyebrow {
-            color: #c4a77d;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 12px;
-            margin-bottom: 25px;
-        }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
 
-        h1 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(42px, 7vw, 88px);
-            font-weight: normal;
-            line-height: 1.1;
-            margin-bottom: 25px;
-        }
+    nav a:hover {
+      color: var(--accent);
+    }
 
-        .hero p {
-            color: #c3c0b8;
-            max-width: 560px;
-            font-size: 17px;
-            margin-bottom: 35px;
-        }
+    .hero {
+      width: min(1300px, 100%);
+      margin: auto;
+      min-height: 85vh;
+      padding: 75px 7%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: clamp(35px, 6vw, 100px);
+    }
 
-        .button {
-            display: inline-block;
-            padding: 13px 27px;
-            border: 1px solid #c4a77d;
-            color: #c4a77d;
-            text-decoration: none;
-            letter-spacing: 1px;
-            font-size: 12px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 720px;
+      object-fit: contain;
+    }
 
-        .button:hover {
-            background-color: #c4a77d;
-            color: #111110;
-        }
+    .hero-content {
+      text-align: left;
+    }
 
-        .intro {
-            text-align: center;
-            padding: 70px 20px;
-            background-color: #1b1b19;
-        }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
 
-        .intro h2 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-weight: normal;
-            font-size: 34px;
-            margin-bottom: 20px;
-        }
+    h1, h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+    }
 
-        .intro p {
-            max-width: 650px;
-            margin: auto;
-            color: #c3c0b8;
-        }
+    h1 {
+      font-size: clamp(48px, 6vw, 92px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin-bottom: 30px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: #88877f;
-            font-size: 12px;
-        }
+    .hero-content p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 440px;
+      margin-bottom: 38px;
+    }
 
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                gap: 18px;
-                padding: 22px 15px;
-            }
+    .button {
+      display: inline-block;
+      padding: 14px 25px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: background .25s, color .25s;
+    }
 
-            nav a {
-                margin: 0 8px;
-                font-size: 11px;
-            }
+    .button:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
 
-            .hero {
-                min-height: 65vh;
-            }
+    .section {
+      padding: 95px 8%;
+      text-align: center;
+    }
 
-            .hero p {
-                font-size: 15px;
-            }
-        }
-        .hero-image {
-    width: 100%;
-    max-width: 440px;
-    margin-bottom: 45px;
-}
+    .section:nth-of-type(even) {
+      background: var(--surface);
+    }
 
-.hero-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 2px;
-}
-    </style>
+    .section h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      margin-bottom: 22px;
+    }
+
+    .section p {
+      max-width: 680px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 18px;
+    }
+
+    footer {
+      border-top: 1px solid #33332f;
+      padding: 35px 20px;
+      text-align: center;
+      color: #99968e;
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        flex-direction: column;
+        padding: 22px 5%;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 10px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 45px 7% 70px;
+        gap: 38px;
+      }
+
+      .hero-image {
+        max-width: 480px;
+        margin: auto;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      h1 {
+        font-size: clamp(46px, 11vw, 72px);
+      }
+
+      .section {
+        padding: 70px 7%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">ATILLA YURTTAŞ</div>
+  <header>
+    <div class="logo">ATILLA YURTTAŞ</div>
 
-        <nav>
-            <a href="#home">HOME</a>
-            <a href="#about">ABOUT</a>
-            <a href="#photography">PHOTOGRAPHY</a>
-            <a href="#contact">CONTACT</a>
-        </nav>
-    </header>
+    <nav aria-label="Main navigation">
+      <a href="#home">HOME</a>
+      <a href="#photography">PHOTOGRAPHY</a>
+      <a href="#about">ABOUT</a>
+      <a href="#guiding">GUIDING</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </header>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="hero-image">
-    <img
-        src="images/hero-photo.jpg"
-        alt="Black and white documentary photograph of visitors in a historic interior"
-    >
-</div>
-            <div class="eyebrow">Türkiye · Tour Guide · Photographer</div>
+  <main>
 
-            <h1>Stories Behind<br>Every Journey.</h1>
+    <section class="hero" id="home">
+      <div class="hero-image">
+        <img
+          src="images/hero-photo.jpg"
+          alt="Visitors standing beneath a chandelier, with sunlight casting long shadows across a historic interior"
+          fetchpriority="high"
+        >
+      </div>
 
-            <p>
-                Exploring places, capturing moments and sharing the stories
-                that connect people with history, culture and life.
-            </p>
+      <div class="hero-content">
+        <div class="eyebrow">Photography & Visual Stories</div>
 
-            <a href="#about" class="button">Discover My Story</a>
-        </section>
+        <h1>People.<br>Places.<br>Stories.</h1>
 
-        <section class="intro" id="about">
-            <h2>A Life Between Places & Stories</h2>
+        <p>
+          Exploring the quiet connections between people,
+          light and places — one frame at a time.
+        </p>
 
-            <p>
-                I am Atilla Yurttaş, a professional tour guide based in Türkiye.
-                Through guiding and photography, I explore the relationship
-                between people, places and the stories they hold.
-            </p>
-        </section>
+        <a href="#photography" class="button">Explore My Work</a>
+      </div>
+    </section>
 
-        <section class="intro" id="photography">
-            <h2>Photography</h2>
+    <section class="section" id="photography">
+      <div class="section-label">Selected Work</div>
+      <h2>Photography</h2>
+      <p>
+        A collection of moments, human stories and places
+        seen through my own perspective.
+      </p>
+    </section>
 
-            <p>
-                A personal collection of people, places, light and everyday
-                moments — seen through my own perspective.
-            </p>
-        </section>
-    </main>
+    <section class="section" id="about">
+      <div class="section-label">Behind the Lens</div>
+      <h2>A Life Between Places & Stories</h2>
+      <p>
+        I'm Atilla Yurttaş, a photographer and professional
+        tour guide based in Türkiye. My work explores the
+        relationship between people, history and the
+        environments we inhabit.
+      </p>
+    </section>
 
-    <footer id="contact">
-        <p>© 2026 Atilla Yurttaş · Tour Guide & Photographer</p>
-    </footer>
+    <section class="section" id="guiding">
+      <div class="section-label">Beyond Photography</div>
+      <h2>Professional Tour Guiding</h2>
+      <p>
+        Sharing the history, culture and stories of Türkiye
+        through years of experience as a professional tour guide.
+      </p>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <p>© 2026 Atilla Yurttaş · Photographer & Tour Guide</p>
+  </footer>
 
 </body>
 </html>
