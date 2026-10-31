@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Atilla Yurttaş — documentary photography, visual stories and professional tour guiding in Türkiye.">
+  <meta name="theme-color" content="#111110">
   <title>Atilla Yurttaş | Photography & Visual Stories</title>
 
   <style>
@@ -31,6 +32,10 @@
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
     }
 
     header {
@@ -100,7 +105,7 @@
       margin-bottom: 28px;
     }
 
-    h1, h2 {
+    h1, h2, h3 {
       font-family: Georgia, "Times New Roman", serif;
       font-weight: normal;
     }
@@ -165,6 +170,74 @@
       margin-bottom: 18px;
     }
 
+    /* Photography collections */
+
+    .collections {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 35px;
+      max-width: 1150px;
+      margin: 55px auto 0;
+      text-align: left;
+    }
+
+    .collection-card {
+      display: block;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .collection-image {
+      overflow: hidden;
+      background: #242421;
+      aspect-ratio: 4 / 5;
+    }
+
+    .collection-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .65s ease, opacity .4s ease;
+    }
+
+    .collection-card:hover .collection-image img {
+      transform: scale(1.035);
+      opacity: .88;
+    }
+
+    .collection-info {
+      padding-top: 24px;
+    }
+
+    .collection-number {
+      display: block;
+      color: var(--accent);
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .collection-info h3 {
+      font-size: clamp(29px, 3.5vw, 44px);
+      margin-bottom: 5px;
+    }
+
+    .collection-info p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .collection-arrow {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
     footer {
       border-top: 1px solid #33332f;
       padding: 35px 20px;
@@ -173,7 +246,6 @@
       font-size: 12px;
     }
 
-    /* Mobile only */
     @media (max-width: 760px) {
       header {
         flex-direction: row;
@@ -274,11 +346,42 @@
         font-size: 10px;
       }
 
-      /* Hide three sections on mobile */
-      #photography,
+      /* Keep About and Guiding hidden on mobile */
       #about,
       #guiding {
         display: none;
+      }
+
+      #photography {
+        padding: 75px 6% 85px;
+      }
+
+      .collections {
+        grid-template-columns: 1fr;
+        gap: 58px;
+        margin-top: 40px;
+      }
+
+      .collection-image {
+        aspect-ratio: 4 / 5;
+      }
+
+      .collection-info {
+        padding-top: 19px;
+      }
+
+      .collection-info h3 {
+        font-size: 34px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .collection-image img {
+        transition: none;
       }
     }
   </style>
@@ -299,7 +402,7 @@
 
     <nav id="main-nav" aria-label="Main navigation">
       <a href="#home">HOME</a>
-      <a href="#photography" class="photography-link">PHOTOGRAPHY</a>
+      <a href="#photography">PHOTOGRAPHY</a>
       <a href="#about">ABOUT</a>
       <a href="#guiding">GUIDING</a>
       <a href="#contact">CONTACT</a>
@@ -327,7 +430,7 @@
           light and places — one frame at a time.
         </p>
 
-        <a href="#photography" class="button photography-link">
+        <a href="#photography" class="button">
           Explore My Work
         </a>
       </div>
@@ -337,14 +440,46 @@
       <div class="section-label">Selected Work</div>
       <h2>Photography</h2>
       <p>
-        A collection of moments, human stories and places
-        seen through my own perspective.
+        Two collections exploring the world through
+        light, shadow and color.
       </p>
 
-      <div style="margin-top: 40px;">
-        <a href="monochrome.html" class="button">
-          Explore Monochrome
+      <div class="collections">
+
+        <a href="monochrome.html" class="collection-card">
+          <div class="collection-image">
+            <img
+              src="images/monochrome/where-shadows-gather.jpg"
+              alt="Black and white photograph from the Monochrome collection"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="collection-info">
+            <span class="collection-number">COLLECTION 01</span>
+            <h3>Monochrome</h3>
+            <p>Light. Shadow. Silence.</p>
+            <span class="collection-arrow">Explore Collection →</span>
+          </div>
         </a>
+
+        <a href="chromatic.html" class="collection-card">
+          <div class="collection-image">
+            <img
+              src="images/chromatic/the-weight-of-years.jpg"
+              alt="Color portrait from the Chromatic collection"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="collection-info">
+            <span class="collection-number">COLLECTION 02</span>
+            <h3>Chromatic</h3>
+            <p>Life. Color. Emotion.</p>
+            <span class="collection-arrow">Explore Collection →</span>
+          </div>
+        </a>
+
       </div>
     </section>
 
@@ -380,11 +515,13 @@
 
     menuButton.addEventListener("click", () => {
       const isOpen = navigation.classList.toggle("open");
+
       menuButton.setAttribute("aria-expanded", String(isOpen));
       menuButton.setAttribute(
         "aria-label",
         isOpen ? "Close navigation" : "Open navigation"
       );
+
       menuButton.textContent = isOpen ? "×" : "☰";
     });
 
@@ -396,21 +533,6 @@
         menuButton.textContent = "☰";
       });
     });
-
-    /* Mobile photography links */
-    function updatePhotographyLinks() {
-      const isMobile = window.matchMedia("(max-width: 760px)").matches;
-
-      document.querySelectorAll(".photography-link").forEach(link => {
-        link.setAttribute(
-          "href",
-          isMobile ? "monochrome.html" : "#photography"
-        );
-      });
-    }
-
-    updatePhotographyLinks();
-    window.addEventListener("resize", updatePhotographyLinks);
   </script>
 
 </body>
