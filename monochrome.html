@@ -4,15 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Monochrome — a photographic study of light, humanity and silence by Atilla Yurttaş.">
-  <title>Monochrome | Atilla Yurttaş</title>
+  <meta name="theme-color" content="#101010">
+  <meta name="description" content="Monochrome — a fine art photography exhibition by Atilla Yurttaş. A study of light, humanity and silence.">
+  <title>Monochrome — Atilla Yurttaş Photography</title>
 
   <style>
     :root {
       --bg: #101010;
-      --text: #f1efe9;
-      --muted: #a8a49c;
-      --gold: #bda17b;
+      --paper: #f0eee8;
+      --muted: #aaa69e;
+      --gold: #bca27d;
+      --line: #34312e;
     }
 
     * { box-sizing: border-box; }
@@ -22,146 +24,261 @@
     body {
       margin: 0;
       background: var(--bg);
-      color: var(--text);
+      color: var(--paper);
       font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
     body.lightbox-open { overflow: hidden; }
 
+    button, a { -webkit-tap-highlight-color: transparent; }
     a { color: inherit; }
 
+    /* HEADER */
+
     .site-header {
-      max-width: 1500px;
-      margin: auto;
-      padding: 30px 6%;
+      max-width: 1540px;
+      margin: 0 auto;
+      padding: 30px 5%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 20px;
     }
 
     .brand {
-      text-decoration: none;
       font-size: 12px;
-      letter-spacing: 2.5px;
       font-weight: 600;
+      letter-spacing: 2.5px;
+      text-decoration: none;
     }
 
     .back {
-      text-decoration: none;
       color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 1px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-decoration: none;
     }
 
+    .back:hover { color: var(--paper); }
+
+    /* INTRO */
+
     .intro {
+      padding: 105px 20px 115px;
       text-align: center;
-      padding: 85px 20px 100px;
     }
 
     .eyebrow {
+      color: var(--gold);
       font-size: 10px;
       letter-spacing: 4px;
-      color: var(--gold);
       text-transform: uppercase;
     }
 
     h1 {
+      margin: 20px 0 16px;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(60px, 10vw, 125px);
-      font-weight: normal;
+      font-size: clamp(62px, 10vw, 132px);
+      font-weight: 400;
       font-style: italic;
-      letter-spacing: -3px;
-      margin: 20px 0;
+      line-height: 1.05;
+      letter-spacing: -4px;
     }
 
-    .intro p {
+    .intro-subtitle {
       color: var(--muted);
       font-family: Georgia, serif;
-      font-style: italic;
       font-size: 17px;
+      font-style: italic;
     }
 
+    .scroll-hint {
+      margin-top: 64px;
+      color: #77736d;
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    /* EXHIBITION */
+
     .exhibition {
-      max-width: 1400px;
-      margin: auto;
-      padding: 0 6%;
+      max-width: 1450px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .gallery-section {
+      margin-bottom: 115px;
+    }
+
+    .gallery-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .solo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .solo .artwork {
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .solo.portrait .artwork {
+      max-width: 680px;
+    }
+
+    .solo.landscape .artwork {
+      max-width: 1100px;
+    }
+
+    .pair {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 90px 65px;
-      align-items: start;
+      align-items: center;
+      gap: clamp(28px, 5vw, 85px);
     }
 
     .artwork {
-      margin: 0;
       min-width: 0;
+      margin: 0;
     }
 
-    .artwork.solo {
-      grid-column: 1 / -1;
+    .artwork-button {
+      display: block;
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: zoom-in;
+      text-align: left;
     }
 
-    .artwork img {
+    .artwork-image {
       display: block;
       width: 100%;
       height: auto;
-      cursor: zoom-in;
-      transition: opacity .25s ease;
+      object-fit: contain;
+      transition: opacity .3s ease;
     }
 
-    .artwork img:hover { opacity: .88; }
-
-    .artwork.solo img {
-      width: auto;
-      max-width: 100%;
-      max-height: 76vh;
+    .artwork-button:hover .artwork-image {
+      opacity: .86;
     }
 
-    .artwork.solo figcaption {
-      width: min(100%, 900px);
+    .artwork-button:focus-visible {
+      outline: 1px solid var(--gold);
+      outline-offset: 8px;
     }
 
-    .artwork.offset { margin-top: 85px; }
-
-    figcaption {
-      margin-top: 17px;
-      font-family: Georgia, serif;
-      font-style: italic;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.5;
+    .artwork-caption {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      margin-top: 19px;
     }
 
     .art-number {
-      display: block;
-      font-family: Arial, sans-serif;
-      font-style: normal;
-      font-size: 10px;
+      flex: 0 0 auto;
       color: var(--gold);
-      letter-spacing: 2px;
-      margin-bottom: 7px;
+      font-size: 10px;
+      letter-spacing: 1px;
     }
+
+    .art-title {
+      color: var(--muted);
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* SUBTLE CHAPTER BREAKS */
+
+    .chapter {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin: 140px 0 115px;
+    }
+
+    .chapter-line {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .chapter-label {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* OUTRO */
+
+    .outro {
+      max-width: 700px;
+      margin: 150px auto 0;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .outro-line {
+      width: 40px;
+      height: 1px;
+      margin: 0 auto 35px;
+      background: var(--gold);
+    }
+
+    .outro p {
+      font-family: Georgia, serif;
+      font-size: clamp(23px, 4vw, 36px);
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--paper);
+    }
+
+    .outro a {
+      display: inline-block;
+      margin-top: 25px;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    footer {
+      padding: 110px 20px 40px;
+      text-align: center;
+      color: #77736d;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    /* FULLSCREEN VIEWER */
 
     .lightbox {
       position: fixed;
       inset: 0;
       z-index: 1000;
       display: none;
-      background: rgba(0,0,0,.98);
-      padding: 20px;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      padding: 30px 80px;
+      background: rgba(0, 0, 0, .985);
     }
 
     .lightbox.open { display: flex; }
 
     .lightbox-image {
-      max-width: calc(100% - 100px);
+      display: block;
+      max-width: 100%;
       max-height: 78vh;
       width: auto;
       height: auto;
@@ -169,97 +286,144 @@
     }
 
     .lightbox-caption {
-      color: var(--muted);
+      margin-top: 22px;
+      color: var(--paper);
       font-family: Georgia, serif;
       font-style: italic;
-      font-size: 15px;
-      margin-top: 20px;
+      font-size: 16px;
       text-align: center;
     }
 
     .lightbox-counter {
+      margin-top: 12px;
       color: var(--gold);
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 2px;
-      margin-top: 10px;
     }
 
     .lightbox-close,
     .lightbox-prev,
     .lightbox-next {
       position: absolute;
-      border: 0;
+      border: none;
       background: transparent;
-      color: #eee;
+      color: var(--paper);
       cursor: pointer;
-      font-size: 30px;
-      padding: 12px;
+      padding: 14px;
+      font-family: Arial, sans-serif;
     }
 
     .lightbox-close {
       top: 15px;
       right: 25px;
+      font-size: 34px;
     }
 
-    .lightbox-prev {
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
+    .lightbox-prev,
     .lightbox-next {
-      right: 15px;
       top: 50%;
       transform: translateY(-50%);
+      font-size: 42px;
     }
 
-    footer {
-      text-align: center;
-      padding: 120px 20px 45px;
-      color: #77736e;
-      font-size: 11px;
-      letter-spacing: 2px;
+    .lightbox-prev { left: 15px; }
+    .lightbox-next { right: 15px; }
+
+    .lightbox button:focus-visible {
+      outline: 1px solid var(--gold);
     }
+
+    /* MOBILE */
 
     @media (max-width: 700px) {
-      .site-header { padding: 22px 5%; }
-      .brand { font-size: 10px; letter-spacing: 1px; }
-      .back { font-size: 10px; }
+      .site-header {
+        padding: 24px 5%;
+      }
 
-      .intro { padding: 65px 15px 70px; }
-      h1 { font-size: clamp(50px, 12vw, 75px); letter-spacing: -2px; }
-      .intro p { font-size: 14px; }
+      .brand {
+        font-size: 10px;
+        letter-spacing: 1.4px;
+      }
 
-      .exhibition {
+      .back {
+        font-size: 10px;
+        letter-spacing: .5px;
+      }
+
+      .intro {
+        padding: 75px 16px 80px;
+      }
+
+      h1 {
+        font-size: clamp(52px, 12vw, 76px);
+        letter-spacing: -2px;
+      }
+
+      .intro-subtitle { font-size: 15px; }
+      .scroll-hint { margin-top: 45px; }
+
+      .exhibition { padding: 0 5%; }
+
+      .gallery-section { margin-bottom: 68px; }
+
+      .pair {
         grid-template-columns: 1fr;
-        gap: 60px;
-        padding: 0 5%;
+        gap: 68px;
       }
 
-      .artwork.solo { grid-column: auto; }
-      .artwork.solo img {
-        width: 100%;
-        max-height: none;
+      .solo.portrait .artwork,
+      .solo.landscape .artwork {
+        max-width: 100%;
       }
 
-      .artwork.offset { margin-top: 0; }
-      figcaption { font-size: 14px; }
+      .artwork-caption {
+        margin-top: 14px;
+        gap: 13px;
+      }
+
+      .art-title { font-size: 15px; }
+
+      .chapter {
+        gap: 14px;
+        margin: 85px 0 75px;
+      }
+
+      .chapter-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+
+      .outro { margin-top: 100px; }
+      footer { padding-top: 85px; }
+
+      .lightbox {
+        padding: 55px 14px 90px;
+      }
 
       .lightbox-image {
-        max-width: 100%;
-        max-height: 73vh;
+        max-height: 70vh;
+      }
+
+      .lightbox-close {
+        top: 8px;
+        right: 10px;
       }
 
       .lightbox-prev,
       .lightbox-next {
         top: auto;
-        bottom: 15px;
+        bottom: 12px;
         transform: none;
-        font-size: 28px;
+        font-size: 36px;
       }
 
-      .lightbox-close { right: 15px; }
-      footer { padding-top: 85px; }
+      .lightbox-prev { left: 20px; }
+      .lightbox-next { right: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .artwork-image { transition: none; }
     }
   </style>
 </head>
@@ -267,25 +431,36 @@
 <body>
 
   <header class="site-header">
-    <a class="brand" href="index.html">ATILLA YURTTAŞ</a>
-    <a class="back" href="index.html">← BACK TO HOME</a>
+    <a href="index.html" class="brand">ATILLA YURTTAŞ</a>
+    <a href="index.html" class="back">← BACK TO HOME</a>
   </header>
 
   <section class="intro">
     <div class="eyebrow">Photography / Collection 01</div>
     <h1>Monochrome.</h1>
-    <p>Light. Humanity. Silence.</p>
+    <div class="intro-subtitle">Light. Humanity. Silence.</div>
+    <div class="scroll-hint">SCROLL TO EXPLORE ↓</div>
   </section>
 
-  <main class="exhibition" id="exhibition"></main>
+  <main class="exhibition" id="exhibition"
+        aria-label="Monochrome photography exhibition">
+  </main>
+
+  <section class="outro">
+    <div class="outro-line"></div>
+    <p>Some stories are best told without colour.</p>
+    <a href="index.html">RETURN TO HOME →</a>
+  </section>
 
   <footer>
     © 2026 ATILLA YURTTAŞ · ALL RIGHTS RESERVED
   </footer>
 
   <div class="lightbox" id="lightbox"
-       role="dialog" aria-modal="true"
-       aria-label="Photography slideshow">
+       role="dialog"
+       aria-modal="true"
+       aria-label="Photography slideshow"
+       aria-hidden="true">
 
     <button class="lightbox-close" id="close"
             aria-label="Close slideshow">×</button>
@@ -303,27 +478,66 @@
   </div>
 
   <script>
+    "use strict";
+
     const folder = "images/monochrome/";
 
+    /*
+      All 18 unique files from the GitHub folder.
+      File extensions are case-sensitive on GitHub Pages.
+    */
+
     const photos = [
-      { file: "where-shadows-gather.jpg", layout: "solo" },
+      { file: "where-shadows-gather.jpg" },
       { file: "a-moment-between-breaths.jpg" },
-      { file: "among-the-echoes.jpeg", layout: "offset" },
-      { file: "passing-through-time.jpg", layout: "solo" },
-      { file: "crossing-the-light.jpg", layout: "solo" },
+      { file: "among-the-echoes.jpeg" },
+      { file: "passing-through-time.jpg" },
+      { file: "crossing-the-light.jpg" },
       { file: "between-faith-and-silence.jpg" },
       { file: "at-the-threshold.jpg" },
-      { file: "in-quiet-devotion.JPG", layout: "solo" },
+      { file: "in-quiet-devotion.JPG" },
       { file: "into-the-depths.jpg" },
       { file: "before-the-ascent.JPG" },
       { file: "between-earth-and-sky.JPG" },
       { file: "the-space-between.JPG" },
-      { file: "passing-through-light.jpg", layout: "solo" },
+      { file: "passing-through-light.jpg" },
       { file: "a-moment-of-stillness.jpg" },
       { file: "the-quiet-center.JPG" },
       { file: "under-the-rain.jpg" },
       { file: "the-weight-of-stillness.JPG" },
-      
+      { file: "among-the-echoes.jpg" }
+    ];
+
+    /*
+      Exhibition sequence:
+      solo portrait = large vertical artwork
+      solo landscape = large horizontal artwork
+      pair = two balanced artworks
+      chapter = subtle editorial divider
+    */
+
+    const layout = [
+      { type: "solo", shape: "portrait", photos: [0] },
+      { type: "pair", photos: [1, 2] },
+      { type: "solo", shape: "portrait", photos: [3] },
+      { type: "solo", shape: "landscape", photos: [4] },
+
+      { type: "chapter", label: "I · HUMANITY" },
+
+      { type: "pair", photos: [5, 6] },
+      { type: "solo", shape: "portrait", photos: [7] },
+      { type: "pair", photos: [8, 9] },
+
+      { type: "chapter", label: "II · PASSAGES" },
+
+      { type: "pair", photos: [10, 11] },
+      { type: "solo", shape: "portrait", photos: [12] },
+      { type: "pair", photos: [13, 14] },
+
+      { type: "chapter", label: "III · STILLNESS" },
+
+      { type: "pair", photos: [15, 16] },
+      { type: "solo", shape: "landscape", photos: [17] }
     ];
 
     const exhibition = document.getElementById("exhibition");
@@ -331,12 +545,14 @@
     const lightboxImage = document.getElementById("lightbox-image");
     const lightboxCaption = document.getElementById("lightbox-caption");
     const lightboxCounter = document.getElementById("lightbox-counter");
+    const closeButton = document.getElementById("close");
 
     let currentIndex = 0;
+    let previousFocus = null;
     let touchStartX = 0;
 
-    function getTitle(filename) {
-      return filename
+    function titleFromFile(file) {
+      return file
         .replace(/\.(jpg|jpeg|png|webp)$/i, "")
         .replace(/-/g, " ")
         .replace(/\b\w/g, char => char.toUpperCase());
@@ -346,63 +562,160 @@
       return folder + encodeURIComponent(photo.file);
     }
 
-    photos.forEach((photo, index) => {
+    function createArtwork(index) {
+      const photo = photos[index];
+
       const figure = document.createElement("figure");
       figure.className = "artwork";
 
-      if (photo.layout) figure.classList.add(photo.layout);
+      const button = document.createElement("button");
+      button.className = "artwork-button";
+      button.type = "button";
+      button.setAttribute(
+        "aria-label",
+        "View " + titleFromFile(photo.file) + " fullscreen"
+      );
 
-      const img = document.createElement("img");
-      img.src = photoUrl(photo);
-      img.alt = getTitle(photo.file);
-      img.loading = index === 0 ? "eager" : "lazy";
+      const image = document.createElement("img");
+      image.className = "artwork-image";
+      image.src = photoUrl(photo);
+      image.alt = titleFromFile(photo.file);
+      image.loading = index === 0 ? "eager" : "lazy";
+      image.decoding = "async";
+
+      button.appendChild(image);
+      button.addEventListener("click", () => openLightbox(index));
 
       const caption = document.createElement("figcaption");
+      caption.className = "artwork-caption";
+
       const number = document.createElement("span");
       number.className = "art-number";
       number.textContent = String(index + 1).padStart(2, "0");
 
-      caption.append(number, document.createTextNode(getTitle(photo.file)));
+      const title = document.createElement("span");
+      title.className = "art-title";
+      title.textContent = titleFromFile(photo.file);
 
-      img.addEventListener("click", () => openLightbox(index));
+      caption.append(number, title);
+      figure.append(button, caption);
 
-      figure.append(img, caption);
-      exhibition.appendChild(figure);
-    });
+      return figure;
+    }
+
+    function createChapter(label) {
+      const chapter = document.createElement("div");
+      chapter.className = "chapter";
+      chapter.setAttribute("aria-label", label);
+
+      const left = document.createElement("div");
+      left.className = "chapter-line";
+
+      const text = document.createElement("span");
+      text.className = "chapter-label";
+      text.textContent = label;
+
+      const right = document.createElement("div");
+      right.className = "chapter-line";
+
+      chapter.append(left, text, right);
+      return chapter;
+    }
+
+    function buildExhibition() {
+      layout.forEach(item => {
+        if (item.type === "chapter") {
+          exhibition.appendChild(createChapter(item.label));
+          return;
+        }
+
+        const section = document.createElement("section");
+        section.className = "gallery-section " + item.type;
+
+        if (item.shape) {
+          section.classList.add(item.shape);
+        }
+
+        item.photos.forEach(index => {
+          section.appendChild(createArtwork(index));
+        });
+
+        exhibition.appendChild(section);
+      });
+    }
 
     function showPhoto(index) {
       currentIndex = (index + photos.length) % photos.length;
       const photo = photos[currentIndex];
 
       lightboxImage.src = photoUrl(photo);
-      lightboxImage.alt = getTitle(photo.file);
-      lightboxCaption.textContent = getTitle(photo.file);
+      lightboxImage.alt = titleFromFile(photo.file);
+      lightboxCaption.textContent = titleFromFile(photo.file);
+
       lightboxCounter.textContent =
         String(currentIndex + 1).padStart(2, "0") +
-        " / " + photos.length;
+        " / " +
+        String(photos.length).padStart(2, "0");
     }
 
     function openLightbox(index) {
+      previousFocus = document.activeElement;
       showPhoto(index);
+
       lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("lightbox-open");
+
+      closeButton.focus();
     }
 
     function closeLightbox() {
       lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
       document.body.classList.remove("lightbox-open");
+
+      if (previousFocus && previousFocus.focus) {
+        previousFocus.focus();
+      }
     }
 
-    document.getElementById("close").addEventListener("click", closeLightbox);
-    document.getElementById("prev").addEventListener("click", () => showPhoto(currentIndex - 1));
-    document.getElementById("next").addEventListener("click", () => showPhoto(currentIndex + 1));
+    closeButton.addEventListener("click", closeLightbox);
+
+    document.getElementById("prev").addEventListener("click", () => {
+      showPhoto(currentIndex - 1);
+    });
+
+    document.getElementById("next").addEventListener("click", () => {
+      showPhoto(currentIndex + 1);
+    });
 
     document.addEventListener("keydown", event => {
       if (!lightbox.classList.contains("open")) return;
 
-      if (event.key === "Escape") closeLightbox();
-      if (event.key === "ArrowLeft") showPhoto(currentIndex - 1);
-      if (event.key === "ArrowRight") showPhoto(currentIndex + 1);
+      if (event.key === "Escape") {
+        closeLightbox();
+      } else if (event.key === "ArrowLeft") {
+        showPhoto(currentIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        showPhoto(currentIndex + 1);
+      } else if (event.key === "Tab") {
+        const controls = [
+          document.getElementById("close"),
+          document.getElementById("prev"),
+          document.getElementById("next")
+        ];
+
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     });
 
     lightbox.addEventListener("touchstart", event => {
@@ -419,8 +732,12 @@
     }, { passive: true });
 
     lightbox.addEventListener("click", event => {
-      if (event.target === lightbox) closeLightbox();
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
     });
+
+    buildExhibition();
   </script>
 
 </body>
