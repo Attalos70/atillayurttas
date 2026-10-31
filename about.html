@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meet Atilla Yurttaş, a photographer and professional tour guide exploring people, places and visual stories.">
+  <title>About | Atilla Yurttaş</title>
+
+  <style>
+    :root {
+      --bg: #111110;
+      --surface: #1b1b19;
+      --text: #f5f2eb;
+      --muted: #c3c0b8;
+      --accent: #c4a77d;
+      --line: #33332f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      padding: 25px 7%;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: color .25s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .about {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 100px 7% 115px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(45px, 7vw, 115px);
+    }
+
+    .portrait {
+      width: 100%;
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 760px;
+      object-fit: contain;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 27px;
+    }
+
+    h1, h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+    }
+
+    h1 {
+      font-size: clamp(52px, 6vw, 88px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 32px;
+    }
+
+    .intro {
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(21px, 2.3vw, 28px);
+      line-height: 1.45;
+      margin-bottom: 32px;
+    }
+
+    .story p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 20px;
+      max-width: 530px;
+    }
+
+    .signature {
+      margin-top: 32px;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: 23px;
+    }
+
+    .philosophy {
+      background: var(--surface);
+      padding: 95px 8%;
+      text-align: center;
+    }
+
+    .philosophy-inner {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .philosophy h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.25;
+      margin-bottom: 25px;
+    }
+
+    .philosophy p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .next {
+      padding: 100px 8%;
+      text-align: center;
+    }
+
+    .next h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      margin-bottom: 18px;
+    }
+
+    .next p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 25px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: background .25s, color .25s;
+    }
+
+    .button:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 35px 20px;
+      text-align: center;
+      color: #99968e;
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        padding: 18px 6%;
+        gap: 12px;
+      }
+
+      .logo {
+        font-size: 13px;
+        letter-spacing: 1.6px;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid #555047;
+        background: transparent;
+        color: var(--accent);
+        font-size: 23px;
+        cursor: pointer;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        padding: 25px 6%;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .about {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 6% 75px;
+        gap: 42px;
+      }
+
+      .portrait {
+        max-width: 470px;
+        margin: 0 auto;
+      }
+
+      .portrait img {
+        max-height: none;
+      }
+
+      .story {
+        width: 100%;
+      }
+
+      .eyebrow {
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: clamp(46px, 12vw, 64px);
+        letter-spacing: -1px;
+        margin-bottom: 25px;
+      }
+
+      .intro {
+        font-size: 22px;
+        margin-bottom: 25px;
+      }
+
+      .story p {
+        font-size: 14px;
+        line-height: 1.85;
+      }
+
+      .philosophy {
+        padding: 75px 7%;
+      }
+
+      .philosophy p {
+        font-size: 14px;
+      }
+
+      .next {
+        padding: 75px 7%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html" class="logo">ATILLA YURTTAŞ</a>
+
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >☰</button>
+
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="index.html">HOME</a>
+      <a href="index.html#photography">PHOTOGRAPHY</a>
+      <a href="about.html" class="active" aria-current="page">ABOUT</a>
+      <a href="index.html#guiding">GUIDING</a>
+      <a href="index.html#contact">CONTACT</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="about">
+
+      <div class="portrait">
+        <img
+          src="images/IMG_6817.JPG"
+          alt="Black and white portrait of Atilla Yurttaş with dramatic side lighting"
+          fetchpriority="high"
+        >
+      </div>
+
+      <div class="story">
+        <div class="eyebrow">Behind the Lens</div>
+
+        <h1>About<br>Me.</h1>
+
+        <div class="intro">
+          A life shaped by light, people and places.
+        </div>
+
+        <p>
+          I'm Atilla Yurttaş, a photographer and professional
+          tour guide based in Selçuk, Türkiye.
+        </p>
+
+        <p>
+          My journey with photography began in 2007.
+          What started as a fascination with capturing
+          moments gradually became a way of understanding
+          the world around me.
+        </p>
+
+        <p>
+          For years, my work as a tour guide has taken me
+          across Türkiye, through ancient cities, quiet
+          villages, crowded streets and extraordinary
+          landscapes. Along the way, I discovered that
+          the most meaningful stories are often found
+          in the smallest, most ordinary moments.
+        </p>
+
+        <p>
+          I'm drawn to natural light, human expressions,
+          fleeting gestures and the atmosphere of places.
+          Whether working in color or black and white,
+          I look for images that hold something beyond
+          what is immediately visible.
+        </p>
+
+        <p>
+          Photography, to me, is both a personal journey
+          and an ongoing conversation with the world.
+        </p>
+
+        <div class="signature">Atilla Yurttaş</div>
+      </div>
+
+    </section>
+
+    <section class="philosophy">
+      <div class="philosophy-inner">
+        <div class="eyebrow">My Perspective</div>
+
+        <h2>Every place has a story.<br>
+        Every face holds a world.</h2>
+
+        <p>
+          I believe photography is not simply about
+          documenting what stands before us. It is
+          about noticing the light, the silence,
+          the emotion and the connections that
+          might otherwise pass unseen.
+        </p>
+      </div>
+    </section>
+
+    <section class="next">
+      <div class="eyebrow">Explore My Work</div>
+
+      <h2>Stories Through the Lens.</h2>
+
+      <p>
+        Two collections exploring light, shadow,
+        color and the human experience.
+      </p>
+
+      <a href="monochrome.html" class="button">
+        Explore Monochrome
+      </a>
+
+      <a href="chromatic.html" class="button" style="margin: 8px;">
+        Explore Chromatic
+      </a>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <p>© 2026 Atilla Yurttaş · Photographer & Tour Guide</p>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById("menu-toggle");
+    const navigation = document.getElementById("main-nav");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
+
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation");
+        menuButton.textContent = "☰";
+      });
+    });
+  </script>
+
+</body>
+</html>
