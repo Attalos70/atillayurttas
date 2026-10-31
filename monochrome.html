@@ -4,24 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Monochrome — a fine art photography collection by Atilla Yurttaş.">
-  <title>Monochrome | Atilla Yurttaş Photography</title>
+  <meta name="description" content="Monochrome — a photographic study of light, humanity and silence by Atilla Yurttaş.">
+  <title>Monochrome | Atilla Yurttaş</title>
 
   <style>
     :root {
-      --bg: #111110;
-      --text: #f5f2eb;
-      --muted: #a9a7a2;
-      --accent: #c4a77d;
+      --bg: #101010;
+      --text: #f1efe9;
+      --muted: #a8a49c;
+      --gold: #bda17b;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -30,8 +26,12 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    header {
-      max-width: 1600px;
+    body.lightbox-open { overflow: hidden; }
+
+    a { color: inherit; }
+
+    .site-header {
+      max-width: 1500px;
       margin: auto;
       padding: 30px 6%;
       display: flex;
@@ -41,297 +41,385 @@
     }
 
     .brand {
-      color: var(--text);
       text-decoration: none;
       font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 600;
     }
 
     .back {
-      color: var(--accent);
       text-decoration: none;
+      color: var(--gold);
       font-size: 12px;
       letter-spacing: 1px;
     }
 
     .intro {
       text-align: center;
-      padding: 85px 20px 110px;
+      padding: 85px 20px 100px;
     }
 
     .eyebrow {
-      color: var(--accent);
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 4px;
+      color: var(--gold);
       text-transform: uppercase;
     }
 
     h1 {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(58px, 10vw, 130px);
+      font-size: clamp(60px, 10vw, 125px);
       font-weight: normal;
       font-style: italic;
-      letter-spacing: -4px;
-      margin: 22px 0;
+      letter-spacing: -3px;
+      margin: 20px 0;
     }
 
     .intro p {
       color: var(--muted);
       font-family: Georgia, serif;
-      font-size: 17px;
       font-style: italic;
+      font-size: 17px;
     }
 
-    .gallery {
-      max-width: 1450px;
+    .exhibition {
+      max-width: 1400px;
       margin: auto;
       padding: 0 6%;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: 55px;
-      row-gap: 100px;
+      gap: 90px 65px;
       align-items: start;
     }
 
-    figure {
+    .artwork {
       margin: 0;
       min-width: 0;
     }
 
-    figure img {
+    .artwork.solo {
+      grid-column: 1 / -1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .artwork img {
       display: block;
       width: 100%;
       height: auto;
       cursor: zoom-in;
-      transition: opacity .3s ease;
+      transition: opacity .25s ease;
     }
 
-    figure img:hover {
-      opacity: .88;
+    .artwork img:hover { opacity: .88; }
+
+    .artwork.solo img {
+      width: auto;
+      max-width: 100%;
+      max-height: 76vh;
     }
 
-    figure.featured {
-      grid-column: 1 / -1;
-      width: min(100%, 1050px);
-      justify-self: center;
+    .artwork.solo figcaption {
+      width: min(100%, 900px);
     }
 
-    figure.featured img {
-      max-height: 85vh;
-      object-fit: contain;
-    }
-
-    figure.offset {
-      margin-top: 110px;
-    }
+    .artwork.offset { margin-top: 85px; }
 
     figcaption {
-      margin-top: 18px;
+      margin-top: 17px;
       font-family: Georgia, serif;
       font-style: italic;
-      font-size: 15px;
       color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
     }
 
-    .number {
+    .art-number {
       display: block;
-      margin-bottom: 8px;
-      color: var(--accent);
       font-family: Arial, sans-serif;
-      font-size: 10px;
       font-style: normal;
+      font-size: 10px;
+      color: var(--gold);
       letter-spacing: 2px;
+      margin-bottom: 7px;
     }
 
     .lightbox {
       position: fixed;
       inset: 0;
-      z-index: 100;
+      z-index: 1000;
       display: none;
-      align-items: center;
+      background: rgba(0,0,0,.98);
+      padding: 20px;
+      flex-direction: column;
       justify-content: center;
-      padding: 50px;
-      background: rgba(0, 0, 0, .97);
-      cursor: zoom-out;
+      align-items: center;
     }
 
-    .lightbox.open {
-      display: flex;
-    }
+    .lightbox.open { display: flex; }
 
-    .lightbox img {
-      max-width: 100%;
-      max-height: 90vh;
+    .lightbox-image {
+      max-width: calc(100% - 100px);
+      max-height: 78vh;
+      width: auto;
+      height: auto;
       object-fit: contain;
     }
 
-    footer {
-      padding: 130px 20px 45px;
+    .lightbox-caption {
+      color: var(--muted);
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 15px;
+      margin-top: 20px;
       text-align: center;
+    }
+
+    .lightbox-counter {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-top: 10px;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      border: 0;
+      background: transparent;
+      color: #eee;
+      cursor: pointer;
+      font-size: 30px;
+      padding: 12px;
+    }
+
+    .lightbox-close {
+      top: 15px;
+      right: 25px;
+    }
+
+    .lightbox-prev {
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    footer {
+      text-align: center;
+      padding: 120px 20px 45px;
       color: #77736e;
       font-size: 11px;
       letter-spacing: 2px;
     }
 
     @media (max-width: 700px) {
-      header {
-        padding: 23px 5%;
-      }
+      .site-header { padding: 22px 5%; }
+      .brand { font-size: 10px; letter-spacing: 1px; }
+      .back { font-size: 10px; }
 
-      .brand {
-        font-size: 10px;
-        letter-spacing: 1.5px;
-      }
+      .intro { padding: 65px 15px 70px; }
+      h1 { font-size: clamp(50px, 12vw, 75px); letter-spacing: -2px; }
+      .intro p { font-size: 14px; }
 
-      .back {
-        font-size: 10px;
-      }
-
-      .intro {
-        padding: 65px 15px 75px;
-      }
-
-      h1 {
-        letter-spacing: -2px;
-      }
-
-      .intro p {
-        font-size: 14px;
-      }
-
-      .gallery {
+      .exhibition {
         grid-template-columns: 1fr;
+        gap: 60px;
         padding: 0 5%;
-        row-gap: 65px;
       }
 
-      figure.featured {
-        grid-column: auto;
+      .artwork.solo { grid-column: auto; }
+      .artwork.solo img {
         width: 100%;
+        max-height: none;
       }
 
-      figure.offset {
-        margin-top: 0;
+      .artwork.offset { margin-top: 0; }
+      figcaption { font-size: 14px; }
+
+      .lightbox-image {
+        max-width: 100%;
+        max-height: 73vh;
       }
 
-      figcaption {
-        font-size: 14px;
+      .lightbox-prev,
+      .lightbox-next {
+        top: auto;
+        bottom: 15px;
+        transform: none;
+        font-size: 28px;
       }
 
-      .lightbox {
-        padding: 15px;
-      }
-
-      footer {
-        padding-top: 90px;
-      }
+      .lightbox-close { right: 15px; }
+      footer { padding-top: 85px; }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <a class="brand" href="index.html">Atilla Yurttaş</a>
-    <a class="back" href="index.html">← Back to Home</a>
+  <header class="site-header">
+    <a class="brand" href="index.html">ATILLA YURTTAŞ</a>
+    <a class="back" href="index.html">← BACK TO HOME</a>
   </header>
 
   <section class="intro">
     <div class="eyebrow">Photography / Collection 01</div>
     <h1>Monochrome.</h1>
-    <p>A study of light, shadow, and the human presence.</p>
+    <p>Light. Humanity. Silence.</p>
   </section>
 
-  <main class="gallery" id="gallery"></main>
-
-  <div class="lightbox" id="lightbox" role="dialog"
-       aria-label="Enlarged photograph">
-    <img id="lightbox-image" alt="">
-  </div>
+  <main class="exhibition" id="exhibition"></main>
 
   <footer>
     © 2026 ATILLA YURTTAŞ · ALL RIGHTS RESERVED
   </footer>
 
+  <div class="lightbox" id="lightbox"
+       role="dialog" aria-modal="true"
+       aria-label="Photography slideshow">
+
+    <button class="lightbox-close" id="close"
+            aria-label="Close slideshow">×</button>
+
+    <button class="lightbox-prev" id="prev"
+            aria-label="Previous photograph">‹</button>
+
+    <img class="lightbox-image" id="lightbox-image" alt="">
+
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+
+    <button class="lightbox-next" id="next"
+            aria-label="Next photograph">›</button>
+  </div>
+
   <script>
     const folder = "images/monochrome/";
 
-    const collection = [
-      { file: "where-shadows-gather.jpg", featured: true },
+    const photos = [
+      { file: "where-shadows-gather.jpg", layout: "solo" },
       { file: "a-moment-between-breaths.jpg" },
-      { file: "among-the-echoes.jpeg", offset: true },
-      { file: "passing-through-time.jpg" },
-      { file: "crossing-the-light.jpg", featured: true },
+      { file: "among-the-echoes.jpeg", layout: "offset" },
+      { file: "passing-through-time.jpg", layout: "solo" },
+      { file: "crossing-the-light.jpg", layout: "solo" },
       { file: "between-faith-and-silence.jpg" },
-      { file: "at-the-threshold.jpg", offset: true },
-      { file: "in-quiet-devotion.JPG" },
-      { file: "into-the-depths.jpg", featured: true },
+      { file: "at-the-threshold.jpg" },
+      { file: "in-quiet-devotion.JPG", layout: "solo" },
+      { file: "into-the-depths.jpg" },
       { file: "before-the-ascent.JPG" },
-      { file: "between-earth-and-sky.JPG", offset: true },
+      { file: "between-earth-and-sky.JPG" },
       { file: "the-space-between.JPG" },
-      { file: "passing-through-light.jpg", featured: true },
+      { file: "passing-through-light.jpg", layout: "solo" },
       { file: "a-moment-of-stillness.jpg" },
-      { file: "the-quiet-center.JPG", offset: true },
+      { file: "the-quiet-center.JPG" },
       { file: "under-the-rain.jpg" },
       { file: "the-weight-of-stillness.JPG" },
+      
     ];
 
-    const gallery = document.getElementById("gallery");
+    const exhibition = document.getElementById("exhibition");
     const lightbox = document.getElementById("lightbox");
     const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const lightboxCounter = document.getElementById("lightbox-counter");
 
-    function titleFromFilename(filename) {
+    let currentIndex = 0;
+    let touchStartX = 0;
+
+    function getTitle(filename) {
       return filename
         .replace(/\.(jpg|jpeg|png|webp)$/i, "")
         .replace(/-/g, " ")
-        .replace(/\b\w/g, letter => letter.toUpperCase());
+        .replace(/\b\w/g, char => char.toUpperCase());
     }
 
-    collection.forEach((photo, index) => {
+    function photoUrl(photo) {
+      return folder + encodeURIComponent(photo.file);
+    }
+
+    photos.forEach((photo, index) => {
       const figure = document.createElement("figure");
+      figure.className = "artwork";
+
+      if (photo.layout) figure.classList.add(photo.layout);
+
       const img = document.createElement("img");
-      const caption = document.createElement("figcaption");
-      const number = document.createElement("span");
-
-      if (photo.featured) {
-        figure.classList.add("featured");
-      }
-
-      if (photo.offset) {
-        figure.classList.add("offset");
-      }
-
-      img.src = folder + encodeURIComponent(photo.file);
-      img.alt = titleFromFilename(photo.file);
+      img.src = photoUrl(photo);
+      img.alt = getTitle(photo.file);
       img.loading = index === 0 ? "eager" : "lazy";
 
-      number.className = "number";
+      const caption = document.createElement("figcaption");
+      const number = document.createElement("span");
+      number.className = "art-number";
       number.textContent = String(index + 1).padStart(2, "0");
 
-      caption.appendChild(number);
-      caption.appendChild(
-        document.createTextNode(titleFromFilename(photo.file))
-      );
+      caption.append(number, document.createTextNode(getTitle(photo.file)));
 
-      img.addEventListener("click", () => {
-        lightboxImage.src = img.src;
-        lightboxImage.alt = img.alt;
-        lightbox.classList.add("open");
-      });
+      img.addEventListener("click", () => openLightbox(index));
 
       figure.append(img, caption);
-      gallery.appendChild(figure);
+      exhibition.appendChild(figure);
     });
 
-    lightbox.addEventListener("click", () => {
+    function showPhoto(index) {
+      currentIndex = (index + photos.length) % photos.length;
+      const photo = photos[currentIndex];
+
+      lightboxImage.src = photoUrl(photo);
+      lightboxImage.alt = getTitle(photo.file);
+      lightboxCaption.textContent = getTitle(photo.file);
+      lightboxCounter.textContent =
+        String(currentIndex + 1).padStart(2, "0") +
+        " / " + photos.length;
+    }
+
+    function openLightbox(index) {
+      showPhoto(index);
+      lightbox.classList.add("open");
+      document.body.classList.add("lightbox-open");
+    }
+
+    function closeLightbox() {
       lightbox.classList.remove("open");
-    });
+      document.body.classList.remove("lightbox-open");
+    }
+
+    document.getElementById("close").addEventListener("click", closeLightbox);
+    document.getElementById("prev").addEventListener("click", () => showPhoto(currentIndex - 1));
+    document.getElementById("next").addEventListener("click", () => showPhoto(currentIndex + 1));
 
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape") {
-        lightbox.classList.remove("open");
+      if (!lightbox.classList.contains("open")) return;
+
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") showPhoto(currentIndex - 1);
+      if (event.key === "ArrowRight") showPhoto(currentIndex + 1);
+    });
+
+    lightbox.addEventListener("touchstart", event => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener("touchend", event => {
+      const difference =
+        event.changedTouches[0].screenX - touchStartX;
+
+      if (Math.abs(difference) > 50) {
+        showPhoto(currentIndex + (difference < 0 ? 1 : -1));
       }
+    }, { passive: true });
+
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) closeLightbox();
     });
   </script>
 
