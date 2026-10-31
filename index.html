@@ -173,7 +173,7 @@
       font-size: 12px;
     }
 
-    /* Mobile design only */
+    /* Mobile only */
     @media (max-width: 760px) {
       header {
         flex-direction: row;
@@ -274,21 +274,11 @@
         font-size: 10px;
       }
 
-      .section {
-        padding: 65px 7%;
-      }
-
-      .section h2 {
-        font-size: clamp(28px, 8vw, 38px);
-      }
-
-      .section p {
-        font-size: 14px;
-        line-height: 1.8;
-      }
-
-      .section-label {
-        font-size: 9px;
+      /* Hide three sections on mobile */
+      #photography,
+      #about,
+      #guiding {
+        display: none;
       }
     }
   </style>
@@ -309,7 +299,7 @@
 
     <nav id="main-nav" aria-label="Main navigation">
       <a href="#home">HOME</a>
-      <a href="#photography">PHOTOGRAPHY</a>
+      <a href="#photography" class="photography-link">PHOTOGRAPHY</a>
       <a href="#about">ABOUT</a>
       <a href="#guiding">GUIDING</a>
       <a href="#contact">CONTACT</a>
@@ -337,7 +327,9 @@
           light and places — one frame at a time.
         </p>
 
-        <a href="#photography" class="button">Explore My Work</a>
+        <a href="#photography" class="button photography-link">
+          Explore My Work
+        </a>
       </div>
     </section>
 
@@ -404,6 +396,21 @@
         menuButton.textContent = "☰";
       });
     });
+
+    /* Mobile photography links */
+    function updatePhotographyLinks() {
+      const isMobile = window.matchMedia("(max-width: 760px)").matches;
+
+      document.querySelectorAll(".photography-link").forEach(link => {
+        link.setAttribute(
+          "href",
+          isMobile ? "monochrome.html" : "#photography"
+        );
+      });
+    }
+
+    updatePhotographyLinks();
+    window.addEventListener("resize", updatePhotographyLinks);
   </script>
 
 </body>
