@@ -169,7 +169,102 @@
       font-size: 12px;
     }
 
-    @media (max-width: 760px) {
+    
+@media (max-width: 760px) {
+
+  /* Header */
+  header {
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px 5%;
+  }
+
+  .logo {
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 13px;
+  }
+
+  nav a {
+    font-size: 9px;
+    letter-spacing: .5px;
+  }
+
+  /* Hero */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding: 25px 5% 65px;
+    gap: 30px;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    max-height: 58vh;
+    object-fit: contain;
+  }
+
+  .hero-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: clamp(38px, 10vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 330px;
+    margin: 0 auto 25px;
+  }
+
+  .button {
+    padding: 12px 20px;
+    font-size: 10px;
+  }
+
+  /* Sections */
+  .section {
+    padding: 65px 7%;
+  }
+
+  .section h2 {
+    font-size: clamp(28px, 8vw, 38px);
+  }
+
+  .section p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .section-label {
+    font-size: 9px;
+  }
+}
+
       header {
         flex-direction: column;
         padding: 22px 5%;
