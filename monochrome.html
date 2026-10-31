@@ -17,9 +17,13 @@
       --line: #34312e;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -29,10 +33,17 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.lightbox-open { overflow: hidden; }
+    body.lightbox-open {
+      overflow: hidden;
+    }
 
-    button, a { -webkit-tap-highlight-color: transparent; }
-    a { color: inherit; }
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+    }
 
     /* HEADER */
 
@@ -60,7 +71,9 @@
       text-decoration: none;
     }
 
-    .back:hover { color: var(--paper); }
+    .back:hover {
+      color: var(--paper);
+    }
 
     /* INTRO */
 
@@ -196,7 +209,7 @@
       line-height: 1.4;
     }
 
-    /* SUBTLE CHAPTER BREAKS */
+    /* CHAPTER DIVIDERS */
 
     .chapter {
       display: flex;
@@ -274,7 +287,9 @@
       background: rgba(0, 0, 0, .985);
     }
 
-    .lightbox.open { display: flex; }
+    .lightbox.open {
+      display: flex;
+    }
 
     .lightbox-image {
       display: block;
@@ -326,8 +341,13 @@
       font-size: 42px;
     }
 
-    .lightbox-prev { left: 15px; }
-    .lightbox-next { right: 15px; }
+    .lightbox-prev {
+      left: 15px;
+    }
+
+    .lightbox-next {
+      right: 15px;
+    }
 
     .lightbox button:focus-visible {
       outline: 1px solid var(--gold);
@@ -359,12 +379,21 @@
         letter-spacing: -2px;
       }
 
-      .intro-subtitle { font-size: 15px; }
-      .scroll-hint { margin-top: 45px; }
+      .intro-subtitle {
+        font-size: 15px;
+      }
 
-      .exhibition { padding: 0 5%; }
+      .scroll-hint {
+        margin-top: 45px;
+      }
 
-      .gallery-section { margin-bottom: 68px; }
+      .exhibition {
+        padding: 0 5%;
+      }
+
+      .gallery-section {
+        margin-bottom: 68px;
+      }
 
       .pair {
         grid-template-columns: 1fr;
@@ -381,7 +410,9 @@
         gap: 13px;
       }
 
-      .art-title { font-size: 15px; }
+      .art-title {
+        font-size: 15px;
+      }
 
       .chapter {
         gap: 14px;
@@ -393,8 +424,13 @@
         letter-spacing: 2px;
       }
 
-      .outro { margin-top: 100px; }
-      footer { padding-top: 85px; }
+      .outro {
+        margin-top: 100px;
+      }
+
+      footer {
+        padding-top: 85px;
+      }
 
       .lightbox {
         padding: 55px 14px 90px;
@@ -417,13 +453,23 @@
         font-size: 36px;
       }
 
-      .lightbox-prev { left: 20px; }
-      .lightbox-next { right: 20px; }
+      .lightbox-prev {
+        left: 20px;
+      }
+
+      .lightbox-next {
+        right: 20px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .artwork-image { transition: none; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      .artwork-image {
+        transition: none;
+      }
     }
   </style>
 </head>
@@ -442,8 +488,10 @@
     <div class="scroll-hint">SCROLL TO EXPLORE ↓</div>
   </section>
 
-  <main class="exhibition" id="exhibition"
-        aria-label="Monochrome photography exhibition">
+  <main
+    class="exhibition"
+    id="exhibition"
+    aria-label="Monochrome photography exhibition">
   </main>
 
   <section class="outro">
@@ -456,25 +504,36 @@
     © 2026 ATILLA YURTTAŞ · ALL RIGHTS RESERVED
   </footer>
 
-  <div class="lightbox" id="lightbox"
-       role="dialog"
-       aria-modal="true"
-       aria-label="Photography slideshow"
-       aria-hidden="true">
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Photography slideshow"
+    aria-hidden="true">
 
-    <button class="lightbox-close" id="close"
-            aria-label="Close slideshow">×</button>
+    <button
+      class="lightbox-close"
+      id="close"
+      aria-label="Close slideshow">×</button>
 
-    <button class="lightbox-prev" id="prev"
-            aria-label="Previous photograph">‹</button>
+    <button
+      class="lightbox-prev"
+      id="prev"
+      aria-label="Previous photograph">‹</button>
 
-    <img class="lightbox-image" id="lightbox-image" alt="">
+    <img
+      class="lightbox-image"
+      id="lightbox-image"
+      alt="">
 
     <div class="lightbox-caption" id="lightbox-caption"></div>
     <div class="lightbox-counter" id="lightbox-counter"></div>
 
-    <button class="lightbox-next" id="next"
-            aria-label="Next photograph">›</button>
+    <button
+      class="lightbox-next"
+      id="next"
+      aria-label="Next photograph">›</button>
   </div>
 
   <script>
@@ -483,63 +542,55 @@
     const folder = "images/monochrome/";
 
     /*
-      All 18 unique files from the GitHub folder.
-      File extensions are case-sensitive on GitHub Pages.
+      16 unique photographs.
+      Filenames match the GitHub folder.
+      Extensions are case-sensitive.
     */
 
-    
-const photos = [
-  { file: "where-shadows-gather.jpg" },
-  { file: "a-moment-between-breaths.jpg" },
-  { file: "passing-through-time.jpg" },
-  { file: "crossing-the-light.jpg" },
-  { file: "between-faith-and-silence.jpg" },
-  { file: "at-the-threshold.jpg" },
-  { file: "in-quiet-devotion.JPG" },
-  { file: "into-the-depths.jpg" },
-  { file: "before-the-ascent.JPG" },
-  { file: "between-earth-and-sky.JPG" },
-  { file: "the-space-between.JPG" },
-  { file: "passing-through-light.jpg" },
-  { file: "a-moment-of-stillness.jpg" },
-  { file: "the-quiet-center.JPG" },
-  { file: "under-the-rain.jpg" },
-  { file: "the-weight-of-stillness.JPG" },
-];
-
+    const photos = [
+      { file: "where-shadows-gather.jpg" },
+      { file: "a-moment-between-breaths.jpg" },
+      { file: "passing-through-time.jpg" },
+      { file: "crossing-the-light.jpg" },
+      { file: "between-faith-and-silence.jpg" },
+      { file: "at-the-threshold.jpg" },
+      { file: "in-quiet-devotion.JPG" },
+      { file: "into-the-depths.jpg" },
+      { file: "before-the-ascent.JPG" },
+      { file: "between-earth-and-sky.JPG" },
+      { file: "the-space-between.JPG" },
+      { file: "passing-through-light.jpg" },
+      { file: "a-moment-of-stillness.jpg" },
+      { file: "the-quiet-center.JPG" },
+      { file: "under-the-rain.jpg" },
+      { file: "the-weight-of-stillness.JPG" }
     ];
 
     /*
-      Exhibition sequence:
-      solo portrait = large vertical artwork
-      solo landscape = large horizontal artwork
-      pair = two balanced artworks
-      chapter = subtle editorial divider
+      Exhibition layout.
+      Valid photo indexes: 0 through 15.
     */
 
-    
-const layout = [
-  { type: "solo", shape: "portrait", photos: [0] },
-  { type: "pair", photos: [1, 2] },
-  { type: "solo", shape: "portrait", photos: [3] },
+    const layout = [
+      { type: "solo", shape: "portrait", photos: [0] },
+      { type: "pair", photos: [1, 2] },
+      { type: "solo", shape: "portrait", photos: [3] },
 
-  { type: "chapter", label: "I · HUMANITY" },
+      { type: "chapter", label: "I · HUMANITY" },
 
-  { type: "pair", photos: [4, 5] },
-  { type: "solo", shape: "portrait", photos: [6] },
-  { type: "pair", photos: [7, 8] },
+      { type: "pair", photos: [4, 5] },
+      { type: "solo", shape: "portrait", photos: [6] },
+      { type: "pair", photos: [7, 8] },
 
-  { type: "chapter", label: "II · PASSAGES" },
+      { type: "chapter", label: "II · PASSAGES" },
 
-  { type: "pair", photos: [9, 10] },
-  { type: "solo", shape: "portrait", photos: [11] },
-  { type: "pair", photos: [12, 13] },
+      { type: "pair", photos: [9, 10] },
+      { type: "solo", shape: "portrait", photos: [11] },
+      { type: "pair", photos: [12, 13] },
 
-  { type: "chapter", label: "III · STILLNESS" },
+      { type: "chapter", label: "III · STILLNESS" },
 
-  { type: "pair", photos: [14, 15] }
-];
-
+      { type: "pair", photos: [14, 15] }
     ];
 
     const exhibition = document.getElementById("exhibition");
@@ -567,12 +618,18 @@ const layout = [
     function createArtwork(index) {
       const photo = photos[index];
 
+      if (!photo) {
+        console.warn("Missing photograph at index:", index);
+        return document.createDocumentFragment();
+      }
+
       const figure = document.createElement("figure");
       figure.className = "artwork";
 
       const button = document.createElement("button");
       button.className = "artwork-button";
       button.type = "button";
+
       button.setAttribute(
         "aria-label",
         "View " + titleFromFile(photo.file) + " fullscreen"
@@ -586,7 +643,10 @@ const layout = [
       image.decoding = "async";
 
       button.appendChild(image);
-      button.addEventListener("click", () => openLightbox(index));
+
+      button.addEventListener("click", () => {
+        openLightbox(index);
+      });
 
       const caption = document.createElement("figcaption");
       caption.className = "artwork-caption";
@@ -621,6 +681,7 @@ const layout = [
       right.className = "chapter-line";
 
       chapter.append(left, text, right);
+
       return chapter;
     }
 
@@ -648,6 +709,7 @@ const layout = [
 
     function showPhoto(index) {
       currentIndex = (index + photos.length) % photos.length;
+
       const photo = photos[currentIndex];
 
       lightboxImage.src = photoUrl(photo);
@@ -662,6 +724,7 @@ const layout = [
 
     function openLightbox(index) {
       previousFocus = document.activeElement;
+
       showPhoto(index);
 
       lightbox.classList.add("open");
@@ -692,7 +755,9 @@ const layout = [
     });
 
     document.addEventListener("keydown", event => {
-      if (!lightbox.classList.contains("open")) return;
+      if (!lightbox.classList.contains("open")) {
+        return;
+      }
 
       if (event.key === "Escape") {
         closeLightbox();
