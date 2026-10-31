@@ -487,24 +487,26 @@
       File extensions are case-sensitive on GitHub Pages.
     */
 
-    const photos = [
-      { file: "where-shadows-gather.jpg" },
-      { file: "a-moment-between-breaths.jpg" },
-      { file: "among-the-echoes.jpeg" },
-      { file: "passing-through-time.jpg" },
-      { file: "crossing-the-light.jpg" },
-      { file: "between-faith-and-silence.jpg" },
-      { file: "at-the-threshold.jpg" },
-      { file: "in-quiet-devotion.JPG" },
-      { file: "into-the-depths.jpg" },
-      { file: "before-the-ascent.JPG" },
-      { file: "between-earth-and-sky.JPG" },
-      { file: "the-space-between.JPG" },
-      { file: "passing-through-light.jpg" },
-      { file: "a-moment-of-stillness.jpg" },
-      { file: "the-quiet-center.JPG" },
-      { file: "under-the-rain.jpg" },
-      { file: "the-weight-of-stillness.JPG" },
+    
+const photos = [
+  { file: "where-shadows-gather.jpg" },
+  { file: "a-moment-between-breaths.jpg" },
+  { file: "passing-through-time.jpg" },
+  { file: "crossing-the-light.jpg" },
+  { file: "between-faith-and-silence.jpg" },
+  { file: "at-the-threshold.jpg" },
+  { file: "in-quiet-devotion.JPG" },
+  { file: "into-the-depths.jpg" },
+  { file: "before-the-ascent.JPG" },
+  { file: "between-earth-and-sky.JPG" },
+  { file: "the-space-between.JPG" },
+  { file: "passing-through-light.jpg" },
+  { file: "a-moment-of-stillness.jpg" },
+  { file: "the-quiet-center.JPG" },
+  { file: "under-the-rain.jpg" },
+  { file: "the-weight-of-stillness.JPG" },
+];
+
     ];
 
     /*
@@ -515,27 +517,29 @@
       chapter = subtle editorial divider
     */
 
-    const layout = [
-      { type: "solo", shape: "portrait", photos: [0] },
-      { type: "pair", photos: [1, 2] },
-      { type: "solo", shape: "portrait", photos: [3] },
-      { type: "solo", shape: "landscape", photos: [4] },
+    
+const layout = [
+  { type: "solo", shape: "portrait", photos: [0] },
+  { type: "pair", photos: [1, 2] },
+  { type: "solo", shape: "portrait", photos: [3] },
 
-      { type: "chapter", label: "I · HUMANITY" },
+  { type: "chapter", label: "I · HUMANITY" },
 
-      { type: "pair", photos: [5, 6] },
-      { type: "solo", shape: "portrait", photos: [7] },
-      { type: "pair", photos: [8, 9] },
+  { type: "pair", photos: [4, 5] },
+  { type: "solo", shape: "portrait", photos: [6] },
+  { type: "pair", photos: [7, 8] },
 
-      { type: "chapter", label: "II · PASSAGES" },
+  { type: "chapter", label: "II · PASSAGES" },
 
-      { type: "pair", photos: [10, 11] },
-      { type: "solo", shape: "portrait", photos: [12] },
-      { type: "pair", photos: [13, 14] },
+  { type: "pair", photos: [9, 10] },
+  { type: "solo", shape: "portrait", photos: [11] },
+  { type: "pair", photos: [12, 13] },
 
-      { type: "chapter", label: "III · STILLNESS" },
+  { type: "chapter", label: "III · STILLNESS" },
 
-      { type: "pair", photos: [15, 16] }
+  { type: "pair", photos: [14, 15] }
+];
+
     ];
 
     const exhibition = document.getElementById("exhibition");
