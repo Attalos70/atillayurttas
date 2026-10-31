@@ -65,6 +65,10 @@
       color: var(--accent);
     }
 
+    .menu-toggle {
+      display: none;
+    }
+
     .hero {
       width: min(1300px, 100%);
       margin: auto;
@@ -169,142 +173,122 @@
       font-size: 12px;
     }
 
-    
-@media (max-width: 760px) {
-
-  /* Header */
-  header {
-    flex-direction: column;
-    gap: 18px;
-    padding: 20px 5%;
-  }
-
-  .logo {
-    font-size: 15px;
-    letter-spacing: 2px;
-  }
-
-  nav {
-    justify-content: center;
-    gap: 13px;
-  }
-
-  nav a {
-    font-size: 9px;
-    letter-spacing: .5px;
-  }
-
-  /* Hero */
-  .hero {
-    display: flex;
-    flex-direction: column;
-    min-height: auto;
-    padding: 25px 5% 65px;
-    gap: 30px;
-  }
-
-  .hero-image {
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .hero-image img {
-    width: 100%;
-    height: auto;
-    max-height: 58vh;
-    object-fit: contain;
-  }
-
-  .hero-content {
-    width: 100%;
-    text-align: center;
-  }
-
-  .eyebrow {
-    font-size: 9px;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-  }
-
-  h1 {
-    font-size: clamp(38px, 10vw, 56px);
-    line-height: 1.1;
-    letter-spacing: -1px;
-    margin-bottom: 20px;
-  }
-
-  .hero-content p {
-    font-size: 14px;
-    line-height: 1.7;
-    max-width: 330px;
-    margin: 0 auto 25px;
-  }
-
-  .button {
-    padding: 12px 20px;
-    font-size: 10px;
-  }
-
-  /* Sections */
-  .section {
-    padding: 65px 7%;
-  }
-
-  .section h2 {
-    font-size: clamp(28px, 8vw, 38px);
-  }
-
-  .section p {
-    font-size: 14px;
-    line-height: 1.8;
-  }
-
-  .section-label {
-    font-size: 9px;
-  }
-}
-
+    /* Mobile design only */
+    @media (max-width: 760px) {
       header {
-        flex-direction: column;
-        padding: 22px 5%;
+        flex-direction: row;
+        padding: 18px 6%;
+        gap: 12px;
+        position: relative;
+      }
+
+      .logo {
+        font-size: 13px;
+        letter-spacing: 1.6px;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid #555047;
+        background: transparent;
+        color: var(--accent);
+        font-size: 23px;
+        cursor: pointer;
       }
 
       nav {
-        justify-content: center;
-        gap: 15px;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        background: var(--bg);
+        border-bottom: 1px solid #33332f;
+        padding: 25px 6%;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      nav.open {
+        display: flex;
       }
 
       nav a {
-        font-size: 10px;
+        font-size: 12px;
+        letter-spacing: 2px;
       }
 
       .hero {
-        grid-template-columns: 1fr;
-        padding: 45px 7% 70px;
-        gap: 38px;
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        padding: 24px 6% 65px;
+        gap: 28px;
       }
 
       .hero-image {
+        width: 100%;
         max-width: 480px;
-        margin: auto;
+        margin: 0 auto;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        max-height: 55vh;
+        object-fit: contain;
       }
 
       .hero-content {
+        width: 100%;
         text-align: center;
       }
 
-      .hero-content p {
-        margin-left: auto;
-        margin-right: auto;
+      .eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
       }
 
       h1 {
-        font-size: clamp(46px, 11vw, 72px);
+        font-size: clamp(39px, 10vw, 56px);
+        line-height: 1.08;
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+      }
+
+      .hero-content p {
+        font-size: 14px;
+        line-height: 1.7;
+        max-width: 340px;
+        margin: 0 auto 25px;
+      }
+
+      .button {
+        padding: 12px 20px;
+        font-size: 10px;
       }
 
       .section {
-        padding: 70px 7%;
+        padding: 65px 7%;
+      }
+
+      .section h2 {
+        font-size: clamp(28px, 8vw, 38px);
+      }
+
+      .section p {
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .section-label {
+        font-size: 9px;
       }
     }
   </style>
@@ -313,9 +297,17 @@
 <body>
 
   <header>
-    <div class="logo">ATİLLA YURTTAŞ</div>
+    <div class="logo">ATILLA YURTTAŞ</div>
 
-    <nav aria-label="Main navigation">
+    <button class="menu-toggle"
+            id="menu-toggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="main-nav">
+      ☰
+    </button>
+
+    <nav id="main-nav" aria-label="Main navigation">
       <a href="#home">HOME</a>
       <a href="#photography">PHOTOGRAPHY</a>
       <a href="#about">ABOUT</a>
@@ -349,23 +341,21 @@
       </div>
     </section>
 
-    
-<section class="section" id="photography">
-  <div class="section-label">Selected Work</div>
-  <h2>Photography</h2>
-  <p>
-    A collection of moments, human stories and places
-    seen through my own perspective.
-  </p>
+    <section class="section" id="photography">
+      <div class="section-label">Selected Work</div>
+      <h2>Photography</h2>
+      <p>
+        A collection of moments, human stories and places
+        seen through my own perspective.
+      </p>
 
-  <div style="margin-top: 40px;">
-    <a href="monochrome.html" class="button">
-      Explore Monochrome
-    </a>
-  </div>
-</section>
+      <div style="margin-top: 40px;">
+        <a href="monochrome.html" class="button">
+          Explore Monochrome
+        </a>
+      </div>
+    </section>
 
-    
     <section class="section" id="about">
       <div class="section-label">Behind the Lens</div>
       <h2>A Life Between Places & Stories</h2>
@@ -391,6 +381,30 @@
   <footer id="contact">
     <p>© 2026 Atilla Yurttaş · Photographer & Tour Guide</p>
   </footer>
+
+  <script>
+    const menuButton = document.getElementById("menu-toggle");
+    const navigation = document.getElementById("main-nav");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation");
+        menuButton.textContent = "☰";
+      });
+    });
+  </script>
 
 </body>
 </html>
