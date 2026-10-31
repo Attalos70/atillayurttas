@@ -4,20 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Monochrome — a fine art photography collection by Atilla Yurttaş.">
   <title>Monochrome | Atilla Yurttaş Photography</title>
-  <meta name="description" content="Monochrome photography by Atilla Yurttaş. Light, shadow, people and places.">
 
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --bg: #111110;
+      --text: #f5f2eb;
+      --muted: #a9a7a2;
+      --accent: #c4a77d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      background: #111110;
-      color: #f0eee9;
-      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     header {
+      max-width: 1600px;
+      margin: auto;
       padding: 30px 6%;
       display: flex;
       justify-content: space-between;
@@ -26,7 +41,7 @@
     }
 
     .brand {
-      color: #eee;
+      color: var(--text);
       text-decoration: none;
       font-size: 12px;
       letter-spacing: 3px;
@@ -34,7 +49,7 @@
     }
 
     .back {
-      color: #bca582;
+      color: var(--accent);
       text-decoration: none;
       font-size: 12px;
       letter-spacing: 1px;
@@ -42,43 +57,46 @@
 
     .intro {
       text-align: center;
-      padding: 85px 20px 95px;
+      padding: 85px 20px 110px;
     }
 
     .eyebrow {
-      color: #bca582;
+      color: var(--accent);
       font-size: 11px;
       letter-spacing: 4px;
       text-transform: uppercase;
     }
 
     h1 {
-      font-family: Georgia, serif;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(58px, 10vw, 130px);
-      font-weight: 400;
+      font-weight: normal;
       font-style: italic;
       letter-spacing: -4px;
-      margin: 20px 0;
+      margin: 22px 0;
     }
 
     .intro p {
-      color: #a9a7a2;
+      color: var(--muted);
       font-family: Georgia, serif;
-      font-style: italic;
       font-size: 17px;
+      font-style: italic;
     }
 
     .gallery {
-      max-width: 1500px;
+      max-width: 1450px;
       margin: auto;
       padding: 0 6%;
-      columns: 2;
-      column-gap: 48px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 55px;
+      row-gap: 100px;
+      align-items: start;
     }
 
     figure {
-      margin: 0 0 85px;
-      break-inside: avoid;
+      margin: 0;
+      min-width: 0;
     }
 
     figure img {
@@ -86,29 +104,61 @@
       width: 100%;
       height: auto;
       cursor: zoom-in;
+      transition: opacity .3s ease;
+    }
+
+    figure img:hover {
+      opacity: .88;
+    }
+
+    figure.featured {
+      grid-column: 1 / -1;
+      width: min(100%, 1050px);
+      justify-self: center;
+    }
+
+    figure.featured img {
+      max-height: 85vh;
+      object-fit: contain;
+    }
+
+    figure.offset {
+      margin-top: 110px;
     }
 
     figcaption {
-      margin-top: 17px;
+      margin-top: 18px;
       font-family: Georgia, serif;
-      font-size: 15px;
       font-style: italic;
-      color: #a9a7a2;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .number {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-style: normal;
+      letter-spacing: 2px;
     }
 
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, .96);
-      display: none;
-      justify-content: center;
-      align-items: center;
       z-index: 100;
-      padding: 40px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      background: rgba(0, 0, 0, .97);
       cursor: zoom-out;
     }
 
-    .lightbox.open { display: flex; }
+    .lightbox.open {
+      display: flex;
+    }
 
     .lightbox img {
       max-width: 100%;
@@ -117,20 +167,65 @@
     }
 
     footer {
+      padding: 130px 20px 45px;
       text-align: center;
-      padding: 90px 20px 40px;
       color: #77736e;
       font-size: 11px;
       letter-spacing: 2px;
     }
 
     @media (max-width: 700px) {
-      header { padding: 24px 5%; }
-      .brand { font-size: 10px; }
-      .intro { padding: 65px 15px; }
-      h1 { letter-spacing: -2px; }
-      .gallery { columns: 1; padding: 0 5%; }
-      figure { margin-bottom: 55px; }
+      header {
+        padding: 23px 5%;
+      }
+
+      .brand {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+
+      .back {
+        font-size: 10px;
+      }
+
+      .intro {
+        padding: 65px 15px 75px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .intro p {
+        font-size: 14px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        padding: 0 5%;
+        row-gap: 65px;
+      }
+
+      figure.featured {
+        grid-column: auto;
+        width: 100%;
+      }
+
+      figure.offset {
+        margin-top: 0;
+      }
+
+      figcaption {
+        font-size: 14px;
+      }
+
+      .lightbox {
+        padding: 15px;
+      }
+
+      footer {
+        padding-top: 90px;
+      }
     }
   </style>
 </head>
@@ -160,10 +255,31 @@
   </footer>
 
   <script>
-    const owner = "Attalos70";
-    const repo = "atillayurttas";
-    const folder = "images/monochrome";
+    const folder = "images/monochrome/";
+
+    const collection = [
+      { file: "where-shadows-gather.jpg", featured: true },
+      { file: "a-moment-between-breaths.jpg" },
+      { file: "among-the-echoes.jpeg", offset: true },
+      { file: "passing-through-time.jpg" },
+      { file: "crossing-the-light.jpg", featured: true },
+      { file: "between-faith-and-silence.jpg" },
+      { file: "at-the-threshold.jpg", offset: true },
+      { file: "in-quiet-devotion.JPG" },
+      { file: "into-the-depths.jpg", featured: true },
+      { file: "before-the-ascent.JPG" },
+      { file: "between-earth-and-sky.JPG", offset: true },
+      { file: "the-space-between.JPG" },
+      { file: "passing-through-light.jpg", featured: true },
+      { file: "a-moment-of-stillness.jpg" },
+      { file: "the-quiet-center.JPG", offset: true },
+      { file: "under-the-rain.jpg" },
+      { file: "the-weight-of-stillness.JPG" },
+    ];
+
     const gallery = document.getElementById("gallery");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
 
     function titleFromFilename(filename) {
       return filename
@@ -172,62 +288,52 @@
         .replace(/\b\w/g, letter => letter.toUpperCase());
     }
 
-    async function loadGallery() {
-      try {
-        const url = `https://api.github.com/repos/${owner}/${repo}/contents/${folder}`;
-        const response = await fetch(url);
+    collection.forEach((photo, index) => {
+      const figure = document.createElement("figure");
+      const img = document.createElement("img");
+      const caption = document.createElement("figcaption");
+      const number = document.createElement("span");
 
-        if (!response.ok) {
-          throw new Error("Could not load photographs.");
-        }
-
-        const files = await response.json();
-
-        const photos = files.filter(file =>
-          /\.(jpg|jpeg|png|webp)$/i.test(file.name)
-        );
-
-        photos.sort((a, b) => a.name.localeCompare(b.name));
-
-        for (const photo of photos) {
-          const figure = document.createElement("figure");
-          const img = document.createElement("img");
-          const caption = document.createElement("figcaption");
-
-          img.src = `${folder}/${encodeURIComponent(photo.name)}`;
-          img.alt = titleFromFilename(photo.name);
-          img.loading = "lazy";
-
-          caption.textContent = titleFromFilename(photo.name);
-
-          img.addEventListener("click", () => {
-            document.getElementById("lightbox-image").src = img.src;
-            document.getElementById("lightbox").classList.add("open");
-          });
-
-          figure.append(img, caption);
-          gallery.appendChild(figure);
-        }
-      } catch (error) {
-        gallery.textContent =
-          "The collection could not be loaded. Please try again later.";
+      if (photo.featured) {
+        figure.classList.add("featured");
       }
-    }
 
-    document.getElementById("lightbox")
-      .addEventListener("click", event => {
-        event.currentTarget.classList.remove("open");
+      if (photo.offset) {
+        figure.classList.add("offset");
+      }
+
+      img.src = folder + encodeURIComponent(photo.file);
+      img.alt = titleFromFilename(photo.file);
+      img.loading = index === 0 ? "eager" : "lazy";
+
+      number.className = "number";
+      number.textContent = String(index + 1).padStart(2, "0");
+
+      caption.appendChild(number);
+      caption.appendChild(
+        document.createTextNode(titleFromFilename(photo.file))
+      );
+
+      img.addEventListener("click", () => {
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt;
+        lightbox.classList.add("open");
       });
+
+      figure.append(img, caption);
+      gallery.appendChild(figure);
+    });
+
+    lightbox.addEventListener("click", () => {
+      lightbox.classList.remove("open");
+    });
 
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") {
-        document.getElementById("lightbox").classList.remove("open");
+        lightbox.classList.remove("open");
       }
     });
-
-    loadGallery();
   </script>
 
 </body>
 </html>
-
