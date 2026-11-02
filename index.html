@@ -169,7 +169,7 @@
       margin-bottom: 18px;
     }
 
-    /* COLLECTIONS — DESKTOP */
+    /* COLLECTIONS */
 
     .collections {
       max-width: 1150px;
@@ -308,7 +308,7 @@
       .hero-image img {
         width: 100%;
         height: auto;
-        max-height: 55vh;
+        max-height: none;
         object-fit: contain;
       }
 
@@ -365,7 +365,7 @@
         max-width: 310px;
       }
 
-      /* TWO SIDE-BY-SIDE MOBILE COLLECTIONS */
+      /* TWO COLLECTIONS SIDE BY SIDE */
 
       .collections {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -404,7 +404,7 @@
         letter-spacing: .5px;
       }
 
-      /* KEEP SECONDARY SECTIONS HIDDEN */
+      /* HIDE SECONDARY SECTIONS ON MOBILE */
 
       #about,
       #guiding {
@@ -452,11 +452,20 @@
 
     <section class="hero" id="home">
       <div class="hero-image">
-        <img
-          src="images/hero-photo.jpg"
-          alt="Visitors standing beneath a chandelier, with sunlight casting long shadows across a historic interior"
-          fetchpriority="high"
-        >
+
+        <!-- Mobile: horizontal portrait / Desktop: original photo -->
+        <picture>
+          <source
+            media="(max-width: 760px)"
+            srcset="images/a-moment-between-breaths.jpg"
+          >
+          <img
+            src="images/hero-photo.jpg"
+            alt="Documentary photography by Atilla Yurttaş"
+            fetchpriority="high"
+          >
+        </picture>
+
       </div>
 
       <div class="hero-content">
@@ -489,6 +498,8 @@
 
       <div class="collections">
 
+        <!-- MONOCHROME -->
+
         <a href="monochrome.html" class="collection">
           <img
             src="images/hero-photo.jpg"
@@ -500,6 +511,8 @@
           <p>Light. Shadow. Silence.</p>
           <span class="collection-link">Explore Collection →</span>
         </a>
+
+        <!-- CHROMATIC -->
 
         <a href="chromatic.html" class="collection">
           <img
