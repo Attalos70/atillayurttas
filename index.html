@@ -7,7 +7,6 @@
   <meta name="description" content="Atilla Yurttaş — documentary photography, visual stories and professional tour guiding in Türkiye.">
   <title>Atilla Yurttaş | Photography & Visual Stories</title>
 
-  <!-- Artistic serif font with Turkish character support -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
@@ -261,8 +260,6 @@
         position: relative;
       }
 
-      /* Perfectly centered artistic signature */
-
       .logo {
         position: absolute;
         left: 50%;
@@ -433,7 +430,7 @@
         letter-spacing: .5px;
       }
 
-      /* SECONDARY SECTIONS */
+      /* HIDE SECONDARY SECTIONS ON MOBILE */
 
       #about,
       #guiding {
@@ -461,6 +458,7 @@
     <button
       class="menu-toggle"
       id="menu-toggle"
+      type="button"
       aria-label="Open navigation"
       aria-expanded="false"
       aria-controls="main-nav"
@@ -471,7 +469,7 @@
       <a href="#photography">PHOTOGRAPHY</a>
       <a href="about.html">ABOUT</a>
       <a href="#guiding">GUIDING</a>
-      <a href="#contact">CONTACT</a>
+      <a href="contact.html">CONTACT</a>
     </nav>
   </header>
 
@@ -480,7 +478,6 @@
     <!-- HERO -->
 
     <section class="hero" id="home">
-
       <div class="hero-image">
 
         <picture>
@@ -512,13 +509,11 @@
           Explore My Work
         </a>
       </div>
-
     </section>
 
     <!-- PHOTOGRAPHY -->
 
     <section class="section" id="photography">
-
       <div class="section-label">Selected Work</div>
 
       <h2>Photography</h2>
@@ -561,13 +556,11 @@
         </a>
 
       </div>
-
     </section>
 
     <!-- ABOUT -->
 
     <section class="section" id="about">
-
       <div class="section-label">Behind the Lens</div>
 
       <h2>A Life Between Places & Stories</h2>
@@ -580,17 +573,13 @@
       </p>
 
       <div style="margin-top: 35px;">
-        <a href="about.html" class="button">
-          More About Me
-        </a>
+        <a href="about.html" class="button">More About Me</a>
       </div>
-
     </section>
 
     <!-- GUIDING -->
 
     <section class="section" id="guiding">
-
       <div class="section-label">Beyond Photography</div>
 
       <h2>Professional Tour Guiding</h2>
@@ -599,7 +588,6 @@
         Sharing the history, culture and stories of Türkiye
         through years of experience as a professional tour guide.
       </p>
-
     </section>
 
   </main>
@@ -618,7 +606,6 @@
       const isOpen = navigation.classList.toggle("open");
 
       menuButton.setAttribute("aria-expanded", String(isOpen));
-
       menuButton.setAttribute(
         "aria-label",
         isOpen ? "Close navigation" : "Open navigation"
@@ -630,10 +617,8 @@
     navigation.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navigation.classList.remove("open");
-
         menuButton.setAttribute("aria-expanded", "false");
         menuButton.setAttribute("aria-label", "Open navigation");
-
         menuButton.textContent = "☰";
       });
     });
