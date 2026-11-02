@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Discover Türkiye with Atilla Yurttaş, a licensed professional tour guide based in Selçuk, İzmir. Private cultural and historical guiding across Türkiye, with a focus on Ephesus and the Aegean."
+  >
+
+  <title>Private Guiding in Türkiye | Atilla Yurttaş</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #111110;
+      --surface: #1b1b19;
+      --text: #f5f2eb;
+      --muted: #c3c0b8;
+      --accent: #c4a77d;
+      --line: #33332f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      padding: 25px 7%;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 27px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      line-height: 1.2;
+      white-space: nowrap;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* COMMON */
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 400;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 27px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: background .25s, color .25s;
+    }
+
+    .button:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* HERO */
+
+    .guiding-hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 130px 7% 125px;
+      text-align: center;
+    }
+
+    .guiding-hero .eyebrow {
+      margin-bottom: 35px;
+    }
+
+    .guiding-hero h1 {
+      max-width: 950px;
+      margin: 0 auto 35px;
+      font-size: clamp(70px, 9vw, 125px);
+      line-height: .93;
+      letter-spacing: -2px;
+    }
+
+    .guiding-hero h1 em {
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .hero-description {
+      max-width: 620px;
+      margin: 0 auto 40px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .hero-meta {
+      margin-top: 60px;
+      color: #99968e;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* INTRO */
+
+    .intro-section {
+      background: var(--surface);
+      padding: 110px 8%;
+    }
+
+    .intro-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .intro-heading .eyebrow {
+      margin-bottom: 25px;
+    }
+
+    .intro-heading h2 {
+      font-size: clamp(48px, 5vw, 70px);
+      line-height: 1;
+    }
+
+    .intro-copy p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+      margin-bottom: 24px;
+    }
+
+    .intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* SPECIALTY */
+
+    .specialty-section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 120px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 18px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(50px, 6vw, 78px);
+      line-height: 1;
+    }
+
+    .specialty-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 35px;
+    }
+
+    .specialty-card {
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .card-number {
+      display: block;
+      margin-bottom: 25px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .specialty-card h3 {
+      font-size: clamp(33px, 3.5vw, 45px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .specialty-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* EPHESUS */
+
+    .ephesus-section {
+      background: var(--surface);
+      padding: 115px 8%;
+    }
+
+    .ephesus-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .ephesus-inner .eyebrow {
+      margin-bottom: 28px;
+    }
+
+    .ephesus-inner h2 {
+      max-width: 800px;
+      margin: 0 auto 32px;
+      font-size: clamp(58px, 7vw, 95px);
+      line-height: .98;
+    }
+
+    .ephesus-inner p {
+      max-width: 640px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .ephesus-details {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px 40px;
+      margin-top: 48px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* APPROACH */
+
+    .approach-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 120px 7%;
+      text-align: center;
+    }
+
+    .approach-section .eyebrow {
+      margin-bottom: 25px;
+    }
+
+    .approach-section h2 {
+      font-size: clamp(52px, 6vw, 82px);
+      line-height: 1;
+      margin-bottom: 35px;
+    }
+
+    .approach-section p {
+      max-width: 640px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    /* CTA */
+
+    .cta-section {
+      padding: 110px 7% 125px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .cta-section .eyebrow {
+      margin-bottom: 24px;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(55px, 7vw, 95px);
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .cta-section p {
+      max-width: 530px;
+      margin: 0 auto 35px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 35px 20px;
+      text-align: center;
+      color: #99968e;
+      font-size: 12px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+
+      header {
+        justify-content: center;
+        position: relative;
+        min-height: 78px;
+        padding: 18px 6%;
+      }
+
+      .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: calc(100% - 116px);
+        font-size: clamp(19px, 5.8vw, 27px);
+        letter-spacing: 1.2px;
+        line-height: 1.1;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        margin-left: auto;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 21;
+        border: 1px solid #555047;
+        background: transparent;
+        color: var(--accent);
+        font-size: 23px;
+        cursor: pointer;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        flex-direction: column;
+        gap: 22px;
+        padding: 25px 6%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+
+      .guiding-hero {
+        padding: 95px 6% 85px;
+      }
+
+      .guiding-hero .eyebrow {
+        margin-bottom: 25px;
+      }
+
+      .guiding-hero h1 {
+        font-size: clamp(60px, 15vw, 85px);
+        line-height: .95;
+        letter-spacing: -1px;
+        margin-bottom: 28px;
+      }
+
+      .hero-description {
+        max-width: 360px;
+        font-size: 14px;
+        line-height: 1.85;
+        margin-bottom: 30px;
+      }
+
+      .hero-meta {
+        margin-top: 48px;
+        font-size: 9px;
+        line-height: 1.8;
+      }
+
+      .intro-section {
+        padding: 80px 6%;
+      }
+
+      .intro-inner {
+        display: block;
+      }
+
+      .intro-heading {
+        margin-bottom: 35px;
+      }
+
+      .intro-heading h2 {
+        font-size: 55px;
+      }
+
+      .intro-copy p {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .specialty-section {
+        padding: 90px 6%;
+      }
+
+      .section-heading {
+        margin-bottom: 45px;
+      }
+
+      .section-heading h2 {
+        font-size: 55px;
+      }
+
+      .specialty-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .specialty-card h3 {
+        font-size: 42px;
+      }
+
+      .specialty-card p {
+        font-size: 14px;
+      }
+
+      .ephesus-section {
+        padding: 90px 6%;
+      }
+
+      .ephesus-inner h2 {
+        font-size: clamp(56px, 13vw, 75px);
+      }
+
+      .ephesus-inner p {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .ephesus-details {
+        gap: 12px 20px;
+        font-size: 9px;
+      }
+
+      .approach-section {
+        padding: 90px 6%;
+      }
+
+      .approach-section h2 {
+        font-size: 60px;
+      }
+
+      .approach-section p {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .cta-section {
+        padding: 90px 6% 100px;
+      }
+
+      .cta-section h2 {
+        font-size: 65px;
+      }
+
+      .cta-section p {
+        font-size: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <a class="logo" href="index.html">
+      ATİLLA YURTTAŞ
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >☰</button>
+
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="index.html">HOME</a>
+      <a href="index.html#photography">PHOTOGRAPHY</a>
+      <a href="about.html">ABOUT</a>
+      <a href="guiding.html" aria-current="page">GUIDING</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="guiding-hero">
+
+      <div class="eyebrow">
+        Licensed Private Guiding · Türkiye
+      </div>
+
+      <h1>
+        Beyond the<br>
+        <em>Monuments.</em>
+      </h1>
+
+      <p class="hero-description">
+        Every place has a history. Every civilization has a story.
+        Discover the many layers of Türkiye with a licensed
+        professional tour guide who believes that the most
+        memorable journeys go beyond what we see.
+      </p>
+
+      <a href="contact.html" class="button">
+        Plan Your Journey
+      </a>
+
+      <div class="hero-meta">
+        Based in Selçuk, İzmir · Guiding Across Türkiye
+      </div>
+
+    </section>
+
+    <!-- INTRODUCTION -->
+
+    <section class="intro-section">
+
+      <div class="intro-inner">
+
+        <div class="intro-heading">
+
+          <div class="eyebrow">
+            The Person Behind the Stories
+          </div>
+
+          <h2>
+            History Is<br>
+            Never Just<br>
+            the Past.
+          </h2>
+
+        </div>
+
+        <div class="intro-copy">
+
+          <p>
+            I'm Atilla Yurttaş, a licensed professional tour guide
+            based in Selçuk, near the ancient city of Ephesus.
+            For more than 17 years, I've had the privilege of
+            introducing travelers to the extraordinary cultural
+            and historical heritage of Türkiye.
+          </p>
+
+          <p>
+            From the ancient civilizations of Anatolia to the
+            living traditions of its towns and cities, my aim
+            is to make history feel human, relevant and alive.
+          </p>
+
+          <p>
+            I believe that a meaningful journey is not simply
+            about visiting famous landmarks. It is about
+            understanding the people, ideas and events
+            that shaped them.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- GUIDING EXPERIENCES -->
+
+    <section class="specialty-section">
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          Explore With Me
+        </div>
+
+        <h2>
+          Journeys With Depth.
+        </h2>
+
+      </div>
+
+      <div class="specialty-grid">
+
+        <!-- 01 -->
+
+        <article class="specialty-card">
+
+          <span class="card-number">01 / HISTORY</span>
+
+          <h3>
+            Ancient<br>
+            Civilizations
+          </h3>
+
+          <p>
+            Explore the fascinating worlds of the Greeks,
+            Romans, Byzantines and the many civilizations
+            that left their mark on Anatolia.
+          </p>
+
+        </article>
+
+        <!-- 02 -->
+
+        <article class="specialty-card">
+
+          <span class="card-number">02 / CULTURE</span>
+
+          <h3>
+            Living<br>
+            Traditions
+          </h3>
+
+          <p>
+            Discover the cultural richness of Türkiye
+            through its architecture, local communities,
+            everyday traditions and enduring stories.
+          </p>
+
+        </article>
+
+        <!-- 03 -->
+
+        <article class="specialty-card">
+
+          <span class="card-number">03 / PRIVATE GUIDING</span>
+
+          <h3>
+            Personal<br>
+            Journeys
+          </h3>
+
+          <p>
+            Enjoy a more personal approach to travel,
+            with historical and cultural experiences
+            shaped around your interests, curiosity
+            and preferred pace.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- EPHESUS & AEGEAN -->
+
+    <section class="ephesus-section">
+
+      <div class="ephesus-inner">
+
+        <div class="eyebrow">
+          A Special Connection
+        </div>
+
+        <h2>
+          Ephesus.<br>
+          The Aegean.<br>
+          My Home.
+        </h2>
+
+        <p>
+          Living in Selçuk has given me a particularly close
+          connection to Ephesus and the Aegean region.
+          Here, ancient cities, remarkable landscapes,
+          layered histories and living communities
+          exist side by side.
+        </p>
+
+        <p style="margin-top: 25px;">
+          From the marble streets of Ephesus to the
+          cultural heritage of the wider Aegean,
+          I enjoy sharing the details and stories
+          that can easily go unnoticed.
+        </p>
+
+        <div class="ephesus-details">
+          <span>Ephesus</span>
+          <span>Selçuk</span>
+          <span>The Aegean</span>
+          <span>Türkiye</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PERSONAL APPROACH -->
+
+    <section class="approach-section">
+
+      <div class="eyebrow">
+        A Different Perspective
+      </div>
+
+      <h2>
+        A Guide's Knowledge.<br>
+        A Photographer's Eye.
+      </h2>
+
+      <p>
+        Photography has taught me to notice the quieter
+        details of a place: the changing light, the
+        expressions of people, the textures of old
+        streets and the atmosphere between monuments.
+        I bring that same curiosity and attention
+        to the journeys I guide.
+      </p>
+
+    </section>
+
+    <!-- CONTACT CTA -->
+
+    <section class="cta-section">
+
+      <div class="eyebrow">
+        Your Journey Begins Here
+      </div>
+
+      <h2>
+        Let's Explore<br>
+        Türkiye Together.
+      </h2>
+
+      <p>
+        Whether you're interested in Ephesus,
+        the Aegean or a journey across Türkiye,
+        I'd be delighted to hear about your plans.
+      </p>
+
+      <a href="contact.html" class="button">
+        Plan Your Journey
+      </a>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>
+      © 2026 Atilla Yurttaş · Photographer & Tour Guide
+    </p>
+  </footer>
+
+  <!-- MOBILE MENU -->
+
+  <script>
+    const menuButton = document.getElementById("menu-toggle");
+    const navigation = document.getElementById("main-nav");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          "Open navigation"
+        );
+
+        menuButton.textContent = "☰";
+      });
+    });
+  </script>
+
+</body>
+</html>
