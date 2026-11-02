@@ -228,6 +228,8 @@
       font-size: 12px;
     }
 
+    /* MOBILE */
+
     @media (max-width: 760px) {
       header {
         flex-direction: row;
@@ -328,10 +330,74 @@
         font-size: 10px;
       }
 
-      #photography,
+      /* Show both photography collections on mobile */
+
+      #photography {
+        display: block;
+        padding: 70px 6% 85px;
+        scroll-margin-top: 15px;
+      }
+
+      #photography .section-label {
+        margin-bottom: 14px;
+      }
+
+      #photography h2 {
+        font-size: 38px;
+        margin-bottom: 15px;
+      }
+
+      #photography > p {
+        font-size: 13px;
+        line-height: 1.75;
+        max-width: 310px;
+      }
+
+      .collections {
+        grid-template-columns: 1fr;
+        gap: 55px;
+        max-width: 460px;
+        margin: 40px auto 0;
+      }
+
+      .collection img {
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+      }
+
+      .collection-label {
+        margin-top: 17px;
+        font-size: 9px;
+      }
+
+      .collection h3 {
+        font-size: 34px;
+        margin-top: 5px;
+      }
+
+      .collection p {
+        font-size: 13px;
+      }
+
+      .collection-link {
+        margin-top: 12px;
+      }
+
+      /* Keep secondary sections hidden on mobile */
+
       #about,
       #guiding {
         display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .collection img {
+        transition: none;
       }
     }
   </style>
@@ -352,7 +418,7 @@
 
     <nav id="main-nav" aria-label="Main navigation">
       <a href="#home">HOME</a>
-      <a href="#photography" class="photography-link">PHOTOGRAPHY</a>
+      <a href="#photography">PHOTOGRAPHY</a>
       <a href="about.html">ABOUT</a>
       <a href="#guiding">GUIDING</a>
       <a href="#contact">CONTACT</a>
@@ -360,7 +426,6 @@
   </header>
 
   <main>
-
     <section class="hero" id="home">
       <div class="hero-image">
         <img
@@ -380,7 +445,7 @@
           light and places — one frame at a time.
         </p>
 
-        <a href="#photography" class="button photography-link">
+        <a href="#photography" class="button">
           Explore My Work
         </a>
       </div>
@@ -452,7 +517,6 @@
         through years of experience as a professional tour guide.
       </p>
     </section>
-
   </main>
 
   <footer id="contact">
@@ -483,20 +547,6 @@
         menuButton.textContent = "☰";
       });
     });
-
-    function updatePhotographyLinks() {
-      const isMobile = window.matchMedia("(max-width: 760px)").matches;
-
-      document.querySelectorAll(".photography-link").forEach(link => {
-        link.setAttribute(
-          "href",
-          isMobile ? "monochrome.html" : "#photography"
-        );
-      });
-    }
-
-    updatePhotographyLinks();
-    window.addEventListener("resize", updatePhotographyLinks);
   </script>
 
 </body>
