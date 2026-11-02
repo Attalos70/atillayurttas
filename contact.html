@@ -4,22 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta
-    name="description"
-    content="Contact Atilla Yurttaş for photography, visual storytelling and professional tour guiding in Türkiye."
-  >
-
+  <meta name="description" content="Contact Atilla Yurttaş for photography, visual storytelling and professional tour guiding in Türkiye.">
   <title>Contact | Atilla Yurttaş</title>
 
-  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -99,7 +89,7 @@
       display: none;
     }
 
-    /* PAGE */
+    /* CONTACT PAGE */
 
     main {
       flex: 1;
@@ -365,8 +355,6 @@
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
 
     <a class="logo" href="index.html">
@@ -392,8 +380,6 @@
 
   </header>
 
-  <!-- MAIN CONTENT -->
-
   <main>
 
     <section class="contact-page">
@@ -417,8 +403,6 @@
 
       </div>
 
-      <!-- CONTACT METHODS -->
-
       <div class="contact-list">
 
         <!-- EMAIL -->
@@ -429,9 +413,7 @@
           aria-label="Send an email to Atilla Yurttaş"
         >
           <span class="contact-label">Email</span>
-          <span class="contact-value">
-            atillayurttas@icloud.com
-          </span>
+          <span class="contact-value">atillayurttas@icloud.com</span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
 
@@ -449,6 +431,20 @@
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
 
+        <!-- X / HISTORY NOTES -->
+
+        <a
+          class="contact-item"
+          href="https://x.com/atillayurttas"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Explore Rehberin Tarih Notları on X"
+        >
+          <span class="contact-label">X / History</span>
+          <span class="contact-value">@atillayurttas</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+
         <!-- WHATSAPP -->
 
         <a
@@ -459,22 +455,16 @@
           aria-label="Contact Atilla Yurttaş on WhatsApp"
         >
           <span class="contact-label">WhatsApp</span>
-          <span class="contact-value">
-            +90 543 972 6828
-          </span>
+          <span class="contact-value">+90 543 972 6828</span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
 
       </div>
 
-      <!-- LOCATION -->
-
       <div class="location">
         <div class="location-label">Based in</div>
         <p>Selçuk · İzmir · Türkiye</p>
       </div>
-
-      <!-- BACK LINK -->
 
       <a class="back-link" href="index.html">
         ← Back to Home
@@ -484,15 +474,9 @@
 
   </main>
 
-  <!-- FOOTER -->
-
   <footer>
-    <p>
-      © 2026 Atilla Yurttaş · Photographer & Tour Guide
-    </p>
+    <p>© 2026 Atilla Yurttaş · Photographer & Tour Guide</p>
   </footer>
-
-  <!-- MOBILE MENU SCRIPT -->
 
   <script>
     const menuButton = document.getElementById("menu-toggle");
@@ -501,10 +485,7 @@
     menuButton.addEventListener("click", () => {
       const isOpen = navigation.classList.toggle("open");
 
-      menuButton.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
+      menuButton.setAttribute("aria-expanded", String(isOpen));
 
       menuButton.setAttribute(
         "aria-label",
@@ -517,17 +498,8 @@
     navigation.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navigation.classList.remove("open");
-
-        menuButton.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-        menuButton.setAttribute(
-          "aria-label",
-          "Open navigation"
-        );
-
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation");
         menuButton.textContent = "☰";
       });
     });
