@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Contact Atilla Yurttaş for photography, visual storytelling and professional tour guiding in Türkiye."
+  >
+
+  <title>Contact | Atilla Yurttaş</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #111110;
+      --surface: #1b1b19;
+      --text: #f5f2eb;
+      --muted: #c3c0b8;
+      --accent: #c4a77d;
+      --line: #33332f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      padding: 25px 7%;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      color: var(--text);
+      text-decoration: none;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 27px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* PAGE */
+
+    main {
+      flex: 1;
+      width: 100%;
+    }
+
+    .contact-page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 115px 7% 125px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 85px;
+    }
+
+    .eyebrow {
+      margin-bottom: 24px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0 auto 28px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(55px, 7.5vw, 104px);
+      font-weight: 400;
+      line-height: .98;
+      letter-spacing: -1.5px;
+    }
+
+    .intro p {
+      max-width: 550px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    /* CONTACT LINKS */
+
+    .contact-list {
+      max-width: 760px;
+      margin: 0 auto;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 125px minmax(0, 1fr) 25px;
+      align-items: center;
+      gap: 20px;
+      padding: 27px 8px;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      transition: color .25s, padding .25s;
+    }
+
+    .contact-item:hover {
+      color: var(--accent);
+      padding-left: 16px;
+    }
+
+    .contact-label {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      min-width: 0;
+      overflow-wrap: anywhere;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(24px, 3.4vw, 38px);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .arrow {
+      color: var(--accent);
+      font-size: 22px;
+      text-align: right;
+    }
+
+    /* LOCATION */
+
+    .location {
+      margin-top: 85px;
+      text-align: center;
+    }
+
+    .location-label {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .location p {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .back-link {
+      display: table;
+      margin: 50px auto 0;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 35px 20px;
+      color: #99968e;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+
+      header {
+        justify-content: center;
+        position: relative;
+        min-height: 78px;
+        padding: 18px 6%;
+      }
+
+      .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: calc(100% - 116px);
+        font-size: clamp(19px, 5.8vw, 27px);
+        letter-spacing: 1.2px;
+        line-height: 1.1;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        margin-left: auto;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 21;
+        border: 1px solid #555047;
+        background: transparent;
+        color: var(--accent);
+        font-size: 23px;
+        cursor: pointer;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        flex-direction: column;
+        gap: 22px;
+        padding: 25px 6%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .contact-page {
+        padding: 75px 6% 90px;
+      }
+
+      .intro {
+        margin-bottom: 55px;
+      }
+
+      .eyebrow {
+        margin-bottom: 20px;
+        font-size: 9px;
+      }
+
+      h1 {
+        font-size: clamp(49px, 13vw, 68px);
+        line-height: 1;
+        letter-spacing: -.5px;
+        margin-bottom: 24px;
+      }
+
+      .intro p {
+        max-width: 350px;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .contact-item {
+        grid-template-columns: minmax(0, 1fr) 22px;
+        gap: 8px 12px;
+        padding: 23px 2px;
+      }
+
+      .contact-label {
+        grid-column: 1;
+        font-size: 9px;
+      }
+
+      .contact-value {
+        grid-column: 1;
+        font-size: clamp(23px, 6.2vw, 32px);
+      }
+
+      .arrow {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        align-self: center;
+      }
+
+      .location {
+        margin-top: 65px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .contact-item {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <a class="logo" href="index.html">
+      ATİLLA YURTTAŞ
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >☰</button>
+
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="index.html">HOME</a>
+      <a href="index.html#photography">PHOTOGRAPHY</a>
+      <a href="about.html">ABOUT</a>
+      <a href="index.html#guiding">GUIDING</a>
+      <a href="contact.html" aria-current="page">CONTACT</a>
+    </nav>
+
+  </header>
+
+  <!-- MAIN CONTENT -->
+
+  <main>
+
+    <section class="contact-page">
+
+      <div class="intro">
+
+        <div class="eyebrow">
+          Contact / Get in Touch
+        </div>
+
+        <h1>
+          Let's Create<br>
+          Something Meaningful.
+        </h1>
+
+        <p>
+          For photography collaborations, visual storytelling,
+          professional tour guiding or simply a conversation.
+          Every meaningful connection begins somewhere.
+        </p>
+
+      </div>
+
+      <!-- CONTACT METHODS -->
+
+      <div class="contact-list">
+
+        <!-- EMAIL -->
+
+        <a
+          class="contact-item"
+          href="mailto:atillayurttas@icloud.com"
+          aria-label="Send an email to Atilla Yurttaş"
+        >
+          <span class="contact-label">Email</span>
+          <span class="contact-value">
+            atillayurttas@icloud.com
+          </span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <!-- INSTAGRAM -->
+
+        <a
+          class="contact-item"
+          href="https://www.instagram.com/atiguide/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Atilla Yurttaş on Instagram"
+        >
+          <span class="contact-label">Instagram</span>
+          <span class="contact-value">@atiguide</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <!-- WHATSAPP -->
+
+        <a
+          class="contact-item"
+          href="https://wa.me/905439726828"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contact Atilla Yurttaş on WhatsApp"
+        >
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-value">
+            +90 543 972 6828
+          </span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+      <!-- LOCATION -->
+
+      <div class="location">
+        <div class="location-label">Based in</div>
+        <p>Selçuk · İzmir · Türkiye</p>
+      </div>
+
+      <!-- BACK LINK -->
+
+      <a class="back-link" href="index.html">
+        ← Back to Home
+      </a>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>
+      © 2026 Atilla Yurttaş · Photographer & Tour Guide
+    </p>
+  </footer>
+
+  <!-- MOBILE MENU SCRIPT -->
+
+  <script>
+    const menuButton = document.getElementById("menu-toggle");
+    const navigation = document.getElementById("main-nav");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          "Open navigation"
+        );
+
+        menuButton.textContent = "☰";
+      });
+    });
+  </script>
+
+</body>
+</html>
