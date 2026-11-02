@@ -7,6 +7,11 @@
   <meta name="description" content="Atilla Yurttaş — documentary photography, visual stories and professional tour guiding in Türkiye.">
   <title>Atilla Yurttaş | Photography & Visual Stories</title>
 
+  <!-- Artistic serif font with Turkish character support -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #111110;
@@ -33,6 +38,8 @@
       line-height: 1.6;
     }
 
+    /* HEADER */
+
     header {
       display: flex;
       justify-content: space-between;
@@ -43,9 +50,13 @@
     }
 
     .logo {
-      font-size: 18px;
-      font-weight: 700;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 27px;
+      font-weight: 500;
       letter-spacing: 2px;
+      line-height: 1.2;
+      white-space: nowrap;
+      color: var(--text);
     }
 
     nav {
@@ -242,15 +253,29 @@
     @media (max-width: 760px) {
 
       header {
-        flex-direction: row;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 18px 6%;
-        gap: 12px;
+        min-height: 78px;
         position: relative;
       }
 
+      /* Perfectly centered artistic signature */
+
       .logo {
-        font-size: 13px;
-        letter-spacing: 1.6px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: calc(100% - 116px);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(19px, 5.8vw, 27px);
+        font-weight: 500;
+        letter-spacing: 1.2px;
+        line-height: 1.1;
+        text-align: center;
+        white-space: nowrap;
       }
 
       .menu-toggle {
@@ -259,11 +284,15 @@
         justify-content: center;
         width: 42px;
         height: 42px;
+        margin-left: auto;
+        flex-shrink: 0;
         border: 1px solid #555047;
         background: transparent;
         color: var(--accent);
         font-size: 23px;
         cursor: pointer;
+        position: relative;
+        z-index: 21;
       }
 
       nav {
@@ -404,7 +433,7 @@
         letter-spacing: .5px;
       }
 
-      /* HIDE SECONDARY SECTIONS ON MOBILE */
+      /* SECONDARY SECTIONS */
 
       #about,
       #guiding {
@@ -427,7 +456,7 @@
 <body>
 
   <header>
-    <div class="logo">ATILLA YURTTAŞ</div>
+    <div class="logo">ATİLLA YURTTAŞ</div>
 
     <button
       class="menu-toggle"
@@ -451,14 +480,15 @@
     <!-- HERO -->
 
     <section class="hero" id="home">
+
       <div class="hero-image">
 
-        <!-- Mobile: horizontal portrait / Desktop: original photo -->
         <picture>
           <source
             media="(max-width: 760px)"
             srcset="images/a-moment-between-breaths.jpg"
           >
+
           <img
             src="images/hero-photo.jpg"
             alt="Documentary photography by Atilla Yurttaş"
@@ -482,11 +512,13 @@
           Explore My Work
         </a>
       </div>
+
     </section>
 
     <!-- PHOTOGRAPHY -->
 
     <section class="section" id="photography">
+
       <div class="section-label">Selected Work</div>
 
       <h2>Photography</h2>
@@ -506,6 +538,7 @@
             alt="Monochrome photography collection"
             loading="lazy"
           >
+
           <div class="collection-label">Collection 01</div>
           <h3>Monochrome</h3>
           <p>Light. Shadow. Silence.</p>
@@ -520,6 +553,7 @@
             alt="Chromatic photography collection"
             loading="lazy"
           >
+
           <div class="collection-label">Collection 02</div>
           <h3>Chromatic</h3>
           <p>Life. Color. Emotion.</p>
@@ -527,11 +561,13 @@
         </a>
 
       </div>
+
     </section>
 
     <!-- ABOUT -->
 
     <section class="section" id="about">
+
       <div class="section-label">Behind the Lens</div>
 
       <h2>A Life Between Places & Stories</h2>
@@ -544,13 +580,17 @@
       </p>
 
       <div style="margin-top: 35px;">
-        <a href="about.html" class="button">More About Me</a>
+        <a href="about.html" class="button">
+          More About Me
+        </a>
       </div>
+
     </section>
 
     <!-- GUIDING -->
 
     <section class="section" id="guiding">
+
       <div class="section-label">Beyond Photography</div>
 
       <h2>Professional Tour Guiding</h2>
@@ -559,6 +599,7 @@
         Sharing the history, culture and stories of Türkiye
         through years of experience as a professional tour guide.
       </p>
+
     </section>
 
   </main>
@@ -577,6 +618,7 @@
       const isOpen = navigation.classList.toggle("open");
 
       menuButton.setAttribute("aria-expanded", String(isOpen));
+
       menuButton.setAttribute(
         "aria-label",
         isOpen ? "Close navigation" : "Open navigation"
@@ -588,8 +630,10 @@
     navigation.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navigation.classList.remove("open");
+
         menuButton.setAttribute("aria-expanded", "false");
         menuButton.setAttribute("aria-label", "Open navigation");
+
         menuButton.textContent = "☰";
       });
     });
