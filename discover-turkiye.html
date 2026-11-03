@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Discover Türkiye through its ancient civilizations, faiths, landscapes and living traditions, with professional tourist guide and photographer Atilla Yurttaş.">
+<title>Discover Türkiye: A Living Book of Civilizations | Atilla Yurttaş</title>
+<link rel="canonical" href="https://atillayurttas.com/discover-turkiye.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+      --bg: #111110;
+      --surface: #1b1b19;
+      --text: #f5f2eb;
+      --muted: #c3c0b8;
+      --accent: #c4a77d;
+      --line: #33332f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      padding: 25px 7%;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 27px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      line-height: 1.2;
+      white-space: nowrap;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* COMMON */
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 400;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 27px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: background .25s, color .25s;
+    }
+
+    .button:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* HERO */
+
+    .guiding-hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 130px 7% 125px;
+      text-align: center;
+    }
+
+    .guiding-hero .eyebrow {
+      margin-bottom: 35px;
+    }
+
+    .guiding-hero h1 {
+      max-width: 950px;
+      margin: 0 auto 35px;
+      font-size: clamp(70px, 9vw, 125px);
+      line-height: .93;
+      letter-spacing: -2px;
+    }
+
+    .guiding-hero h1 em {
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .hero-description {
+      max-width: 620px;
+      margin: 0 auto 40px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .hero-meta {
+      margin-top: 60px;
+      color: #99968e;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* INTRO */
+
+    .intro-section {
+      background: var(--surface);
+      padding: 110px 8%;
+    }
+
+    .intro-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .intro-heading .eyebrow {
+      margin-bottom: 25px;
+    }
+
+    .intro-heading h2 {
+      font-size: clamp(48px, 5vw, 70px);
+      line-height: 1;
+    }
+
+    .intro-copy p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+      margin-bottom: 24px;
+    }
+
+    .intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* SPECIALTY */
+
+    .specialty-section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 120px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 18px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(50px, 6vw, 78px);
+      line-height: 1;
+    }
+
+    .specialty-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 35px;
+    }
+
+    .specialty-card {
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .card-number {
+      display: block;
+      margin-bottom: 25px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .specialty-card h3 {
+      font-size: clamp(33px, 3.5vw, 45px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .specialty-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* EPHESUS */
+
+    .ephesus-section {
+      background: var(--surface);
+      padding: 115px 8%;
+    }
+
+    .ephesus-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .ephesus-inner .eyebrow {
+      margin-bottom: 28px;
+    }
+
+    .ephesus-inner h2 {
+      max-width: 800px;
+      margin: 0 auto 32px;
+      font-size: clamp(58px, 7vw, 95px);
+      line-height: .98;
+    }
+
+    .ephesus-inner p {
+      max-width: 640px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .ephesus-details {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px 40px;
+      margin-top: 48px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* APPROACH */
+
+    .approach-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 120px 7%;
+      text-align: center;
+    }
+
+    .approach-section .eyebrow {
+      margin-bottom: 25px;
+    }
+
+    .approach-section h2 {
+      font-size: clamp(52px, 6vw, 82px);
+      line-height: 1;
+      margin-bottom: 35px;
+    }
+
+    .approach-section p {
+      max-width: 640px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    /* CTA */
+
+    .cta-section {
+      padding: 110px 7% 125px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .cta-section .eyebrow {
+      margin-bottom: 24px;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(55px, 7vw, 95px);
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .cta-section p {
+      max-width: 530px;
+      margin: 0 auto 35px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 35px 20px;
+      text-align: center;
+      color: #99968e;
+      font-size: 12px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+
+      header {
+        justify-content: center;
+        position: relative;
+        min-height: 78px;
+        padding: 18px 6%;
+      }
+
+      .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: calc(100% - 116px);
+        font-size: clamp(19px, 5.8vw, 27px);
+        letter-spacing: 1.2px;
+        line-height: 1.1;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        margin-left: auto;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 21;
+        border: 1px solid #555047;
+        background: transparent;
+        color: var(--accent);
+        font-size: 23px;
+        cursor: pointer;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        flex-direction: column;
+        gap: 22px;
+        padding: 25px 6%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+
+      .guiding-hero {
+        padding: 95px 6% 85px;
+      }
+
+      .guiding-hero .eyebrow {
+        margin-bottom: 25px;
+      }
+
+      .guiding-hero h1 {
+        font-size: clamp(60px, 15vw, 85px);
+        line-height: .95;
+        letter-spacing: -1px;
+        margin-bottom: 28px;
+      }
+
+      .hero-description {
+        max-width: 360px;
+        font-size: 14px;
+        line-height: 1.85;
+        margin-bottom: 30px;
+      }
+
+      .hero-meta {
+        margin-top: 48px;
+        font-size: 9px;
+        line-height: 1.8;
+      }
+
+      .intro-section {
+        padding: 80px 6%;
+      }
+
+      .intro-inner {
+        display: block;
+      }
+
+      .intro-heading {
+        margin-bottom: 35px;
+      }
+
+      .intro-heading h2 {
+        font-size: 55px;
+      }
+
+      .intro-copy p {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .specialty-section {
+        padding: 90px 6%;
+      }
+
+      .section-heading {
+        margin-bottom: 45px;
+      }
+
+      .section-heading h2 {
+        font-size: 55px;
+      }
+
+      .specialty-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .specialty-card h3 {
+        font-size: 42px;
+      }
+
+      .specialty-card p {
+        font-size: 14px;
+      }
+
+      .ephesus-section {
+        padding: 90px 6%;
+      }
+
+      .ephesus-inner h2 {
+        font-size: clamp(56px, 13vw, 75px);
+      }
+
+      .ephesus-inner p {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .ephesus-details {
+        gap: 12px 20px;
+        font-size: 9px;
+      }
+
+      .approach-section {
+        padding: 90px 6%;
+      }
+
+      .approach-section h2 {
+        font-size: 60px;
+      }
+
+      .approach-section p {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .cta-section {
+        padding: 90px 6% 100px;
+      }
+
+      .cta-section h2 {
+        font-size: 65px;
+      }
+
+      .cta-section p {
+        font-size: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button {
+        transition: none;
+      }
+    }
+  
+    .reading-hero { max-width: 1100px; margin:auto; padding: 125px 7% 105px; text-align:center; }
+    .reading-hero .eyebrow {margin-bottom:32px;}
+    .reading-hero h1 {font-size:clamp(65px,9vw,120px);line-height:.94;letter-spacing:-2px;}
+    .reading-hero h1 em {font-weight:400;color:var(--accent);}
+    .reading-hero .deck {max-width:620px;margin:36px auto 0;color:var(--muted);font-size:18px;line-height:1.9;}
+    .reading-hero .subline {margin-top:38px;font-size:11px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;}
+    .story {padding:105px 7%;border-top:1px solid var(--line);}
+    .story:nth-of-type(even) {background:var(--surface);}
+    .story-inner {max-width:900px;margin:auto;display:grid;grid-template-columns: 260px minmax(0,1fr);gap:65px;}
+    .story-label {color:var(--accent);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding-top:12px;}
+    .story-content h2 {font-size:clamp(48px,5vw,72px);line-height:1.03;margin-bottom:36px;}
+    .story-content p {font-size:16px;line-height:2;color:var(--muted);margin-bottom:23px;}
+    .story-content p:last-child {margin-bottom:0;}
+    .story-content em {color:var(--text);}
+    .story-content .closing {font-family:'Cormorant Garamond',Georgia,serif;color:var(--text);font-size:clamp(27px,3vw,37px);line-height:1.3;margin-top:38px;}
+    .signature {color:var(--accent)!important;letter-spacing:.4px;}
+    .return-link {display:inline-block;margin-top:40px;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:5px;font-size:12px;letter-spacing:1px;text-transform:uppercase;}
+    @media(max-width:760px) {
+      .reading-hero {padding:95px 6% 85px;}
+      .reading-hero h1 {font-size:clamp(55px,14vw,79px);letter-spacing:-1px;}
+      .reading-hero .deck {font-size:14px;line-height:1.9;}
+      .story {padding:75px 6%;}
+      .story-inner {display:block;}
+      .story-label {margin-bottom:22px;}
+      .story-content h2 {font-size:52px;margin-bottom:27px;}
+      .story-content p {font-size:14px;line-height:1.9;}
+    }
+</style>
+</head>
+<body>
+<header>
+
+    <a class="logo" href="index.html">
+      ATİLLA YURTTAŞ
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >☰</button>
+
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="index.html">HOME</a>
+      <a href="index.html#photography">PHOTOGRAPHY</a>
+      <a href="about.html">ABOUT</a>
+      <a href="guiding.html">GUIDING</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+
+  </header>
+<main><section class="reading-hero"><div class="eyebrow">Discover Türkiye · Stories Across Time</div><h1>A Living Book<br>of <em>Civilizations.</em></h1><p class="deck"><em>Some places are meant to be visited. Others are meant to be understood.</em><br><br>Türkiye belongs to the second kind.</p><div class="subline">An Invitation to Explore</div></section>
+<section class="story"><div class="story-inner"><div class="story-label">Prologue / Türkiye</div><div class="story-content"><h2>At the Crossroads of Worlds.</h2><p>Standing at the crossroads of Europe and Asia, this extraordinary land has witnessed the rise and fall of empires, the birth of ideas, the journeys of great thinkers, and the meeting of countless cultures.</p><p>For thousands of years, Anatolia has been more than a bridge between continents. It has been a homeland, a crossroads of civilizations, and a place where human history has continuously unfolded.</p><p>Here, the past is never truly far away.</p><p>It lives in the stones beneath your feet, in the streets of ancient cities, in the traditions of small villages, and in the stories passed from one generation to the next.</p></div></div></section><section class="story"><div class="story-inner"><div class="story-label">01 / The Beginning</div><div class="story-content"><h2>Where History Comes Alive</h2><p>Imagine walking through Troy, the legendary city immortalized in Homer’s <em>Iliad</em>, where mythology and archaeology meet.</p><p>Travel south to Halicarnassus, the birthplace of Herodotus, often called the Father of History, and once home to the magnificent Mausoleum, one of the Seven Wonders of the Ancient World.</p><p>Along the Aegean coast, discover ancient Phocaea, whose Greek settlers established Massalia, the city we know today as Marseille.</p><p>In Sardis, the capital of ancient Lydia, follow the story of King Croesus, whose legendary wealth became a symbol of prosperity throughout the ancient world.</p><p>Explore Pergamon, a remarkable center of learning and culture, closely associated with the development and widespread use of parchment.</p><p>And in the ancient city of Zela, discover the story behind Julius Caesar’s famous declaration: <em>Veni, vidi, vici</em> — “I came, I saw, I conquered.”</p><p>These are not simply names in history books. They are places you can still experience.</p></div></div></section><section class="story"><div class="story-inner"><div class="story-label">02 / Heritage</div><div class="story-content"><h2>A Land of Faiths and Empires</h2><p>Türkiye also holds an extraordinary place in the history of religion.</p><p>In Antioch, followers of Jesus were first called Christians, according to the Acts of the Apostles.</p><p>In Tarsus, discover the birthplace of St. Paul, whose journeys and letters helped shape early Christianity.</p><p>In Myra, the memory of St. Nicholas lives on — a historical figure whose legacy eventually contributed to the tradition of Santa Claus.</p><p>And then there is Istanbul.</p><p>Known through the centuries as Byzantium and Constantinople, this remarkable city served as the capital of the Eastern Roman and Ottoman empires.</p><p>Its skyline tells a story of transformation, where Byzantine churches, Ottoman mosques, palaces, and centuries-old neighborhoods coexist.</p><p>Few cities in the world reveal so many layers of history in a single glance.</p></div></div></section><section class="story"><div class="story-inner"><div class="story-label">03 / Landscapes & Life</div><div class="story-content"><h2>Beyond the Ancient Stones</h2><p>Yet Türkiye is far more than its extraordinary past.</p><p>It is the surreal landscape of Cappadocia, where volcanic formations rise above valleys shaped by centuries of wind and water.</p><p>It is the brilliant white terraces of Pamukkale, where mineral-rich thermal waters have created one of nature’s most distinctive landscapes.</p><p>It is the turquoise coastline of the Mediterranean, the olive groves of the Aegean, the mountains of the east, and the quiet beauty of villages where traditional ways of life continue.</p><p>It is the aroma of freshly brewed Turkish tea, the richness of regional cuisine, the warmth of hospitality, and the unexpected conversations that turn a journey into a memory.</p><p>Every region has its own rhythm. Every city has its own character. And every journey reveals another side of the country.</p></div></div></section><section class="story"><div class="story-inner"><div class="story-label">04 / My Perspective</div><div class="story-content"><h2>Discover the Stories Behind the Places</h2><p>After more than seventeen years of guiding travelers through Türkiye, I have come to believe that the most meaningful journeys are not defined by how many places we visit.</p><p>They are defined by how deeply we connect with them.</p><p>A ruined column becomes more than a stone when you understand the people who raised it.</p><p>An ancient road becomes more than a pathway when you imagine the merchants, pilgrims, soldiers, and ordinary travelers who once walked along it.</p><p>And a photograph becomes more than an image when you know the story behind the moment.</p><p>As both a professional tourist guide and a photographer, I approach every journey with curiosity, historical perspective, and an appreciation for the details that often go unnoticed.</p><p>My aim is not simply to show you Türkiye. It is to help you see it differently.</p><p class="closing">Because the finest journeys do more than take us somewhere new. They change the way we see the world.</p><p>Welcome to Türkiye. Let’s discover its stories together.</p><p class="signature">Atilla Yurttaş<br><small>Professional Tourist Guide &amp; Photographer</small></p><a class="return-link" href="guiding.html">← Back to Guiding</a></div></div></section></main>
+<footer>
+    <p>
+      © 2026 Atilla Yurttaş · Photographer & Tour Guide
+    </p>
+  </footer>
+<script>
+    const menuButton = document.getElementById("menu-toggle");
+    const navigation = document.getElementById("main-nav");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          "Open navigation"
+        );
+
+        menuButton.textContent = "☰";
+      });
+    });
+  </script>
+</body>
+</html>
