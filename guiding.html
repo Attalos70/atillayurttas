@@ -14,7 +14,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap"
     rel="stylesheet"
@@ -330,6 +329,43 @@
       line-height: 2;
     }
 
+    /* DISCOVER TURKIYE */
+
+    .discover-section {
+      background: var(--surface);
+      padding: 115px 7%;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    .discover-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .discover-inner .eyebrow {
+      margin-bottom: 24px;
+    }
+
+    .discover-inner h2 {
+      font-size: clamp(52px, 7vw, 88px);
+      line-height: 1.02;
+      margin-bottom: 28px;
+    }
+
+    .discover-inner h2 em {
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .discover-inner p {
+      max-width: 620px;
+      margin: 0 auto 35px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+    }
+
     /* CTA */
 
     .cta-section {
@@ -536,6 +572,19 @@
       }
 
       .approach-section p {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .discover-section {
+        padding: 90px 6%;
+      }
+
+      .discover-inner h2 {
+        font-size: clamp(48px, 12vw, 68px);
+      }
+
+      .discover-inner p {
         font-size: 14px;
         line-height: 1.9;
       }
@@ -818,6 +867,37 @@
         I bring that same curiosity and attention
         to the journeys I guide.
       </p>
+
+    </section>
+
+    <!-- DISCOVER TURKIYE -->
+
+    <section class="discover-section" aria-labelledby="discover-title">
+
+      <div class="discover-inner">
+
+        <div class="eyebrow">
+          Stories Beyond the Journey
+        </div>
+
+        <h2 id="discover-title">
+          Türkiye.<br>
+          <em>A Living Book of Civilizations.</em>
+        </h2>
+
+        <p>
+          From the legendary walls of Troy to the ancient
+          streets of Ephesus, Türkiye is a land where
+          history lives in every landscape.
+          Discover the people, places and stories
+          that make this country extraordinary.
+        </p>
+
+        <a href="discover-turkiye.html" class="button">
+          Discover Türkiye
+        </a>
+
+      </div>
 
     </section>
 
