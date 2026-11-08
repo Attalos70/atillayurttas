@@ -4,12 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Contact Atilla Yurttaş for photography, visual storytelling and professional tour guiding in Türkiye.">
-  <title>Contact | Atilla Yurttaş</title>
+
+  <meta
+    name="description"
+    content="Contact Atilla Yurttaş for photography projects, editorial work, visual storytelling and creative collaborations."
+  >
+
+  <title>Contact | Atilla Yurttaş Photography</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
@@ -355,6 +363,8 @@
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
 
     <a class="logo" href="index.html">
@@ -374,13 +384,14 @@
       <a href="index.html">HOME</a>
       <a href="index.html#photography">PHOTOGRAPHY</a>
       <a href="about.html">ABOUT</a>
-      <a href="index.html#guiding">GUIDING</a>
       <a href="contact.html" aria-current="page">CONTACT</a>
     </nav>
 
   </header>
 
   <main>
+
+    <!-- CONTACT PAGE -->
 
     <section class="contact-page">
 
@@ -396,12 +407,14 @@
         </h1>
 
         <p>
-          For photography collaborations, visual storytelling,
-          professional tour guiding or simply a conversation.
+          For photography projects, editorial assignments,
+          visual storytelling and creative collaborations.
           Every meaningful connection begins somewhere.
         </p>
 
       </div>
+
+      <!-- CONTACT LINKS -->
 
       <div class="contact-list">
 
@@ -413,7 +426,9 @@
           aria-label="Send an email to Atilla Yurttaş"
         >
           <span class="contact-label">Email</span>
-          <span class="contact-value">atillayurttas@icloud.com</span>
+          <span class="contact-value">
+            atillayurttas@icloud.com
+          </span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
 
@@ -431,16 +446,16 @@
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
 
-        <!-- X / HISTORY NOTES -->
+        <!-- X -->
 
         <a
           class="contact-item"
           href="https://x.com/atillayurttas"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Explore Rehberin Tarih Notları on X"
+          aria-label="Visit Atilla Yurttaş on X"
         >
-          <span class="contact-label">X / History</span>
+          <span class="contact-label">X</span>
           <span class="contact-value">@atillayurttas</span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
@@ -455,11 +470,15 @@
           aria-label="Contact Atilla Yurttaş on WhatsApp"
         >
           <span class="contact-label">WhatsApp</span>
-          <span class="contact-value">+90 543 972 6828</span>
+          <span class="contact-value">
+            +90 543 972 6828
+          </span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
 
       </div>
+
+      <!-- LOCATION -->
 
       <div class="location">
         <div class="location-label">Based in</div>
@@ -474,9 +493,15 @@
 
   </main>
 
+  <!-- FOOTER -->
+
   <footer>
-    <p>© 2026 Atilla Yurttaş · Photographer & Tour Guide</p>
+    <p>
+      © 2026 Atilla Yurttaş · Photography & Visual Stories
+    </p>
   </footer>
+
+  <!-- MOBILE MENU -->
 
   <script>
     const menuButton = document.getElementById("menu-toggle");
@@ -485,7 +510,10 @@
     menuButton.addEventListener("click", () => {
       const isOpen = navigation.classList.toggle("open");
 
-      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
 
       menuButton.setAttribute(
         "aria-label",
@@ -498,8 +526,17 @@
     navigation.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navigation.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Open navigation");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          "Open navigation"
+        );
+
         menuButton.textContent = "☰";
       });
     });
