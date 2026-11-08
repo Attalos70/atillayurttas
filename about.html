@@ -4,8 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Meet Atilla Yurttaş, a photographer and professional tour guide exploring people, places and visual stories.">
-  <title>About | Atilla Yurttaş</title>
+
+  <meta
+    name="description"
+    content="Meet Atilla Yurttaş, a photographer based in Türkiye exploring human stories, everyday life, light and shadow through documentary, street and portrait photography."
+  >
+
+  <title>About | Atilla Yurttaş Photography</title>
 
   <style>
     :root {
@@ -38,6 +43,8 @@
       color: inherit;
     }
 
+    /* HEADER */
+
     header {
       display: flex;
       justify-content: space-between;
@@ -51,10 +58,12 @@
 
     .logo {
       color: var(--text);
-      font-size: 18px;
-      font-weight: 700;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      font-weight: normal;
       letter-spacing: 2px;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     nav {
@@ -80,12 +89,16 @@
       display: none;
     }
 
+    /* ABOUT */
+
     .about {
       max-width: 1320px;
       margin: 0 auto;
       padding: 100px 7% 115px;
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+      grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1fr);
       align-items: center;
       gap: clamp(45px, 7vw, 115px);
     }
@@ -146,6 +159,8 @@
       font-size: 23px;
     }
 
+    /* PHILOSOPHY */
+
     .philosophy {
       background: var(--surface);
       padding: 95px 8%;
@@ -168,6 +183,8 @@
       font-size: 16px;
       line-height: 1.9;
     }
+
+    /* EXPLORE WORK */
 
     .next {
       padding: 100px 8%;
@@ -202,6 +219,8 @@
       color: var(--bg);
     }
 
+    /* FOOTER */
+
     footer {
       border-top: 1px solid var(--line);
       padding: 35px 20px;
@@ -210,15 +229,29 @@
       font-size: 12px;
     }
 
+    /* MOBILE */
+
     @media (max-width: 760px) {
+
       header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 18px 6%;
+        min-height: 78px;
         gap: 12px;
       }
 
       .logo {
-        font-size: 13px;
-        letter-spacing: 1.6px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: calc(100% - 116px);
+        font-size: clamp(19px, 5.8vw, 27px);
+        letter-spacing: 1.2px;
+        line-height: 1.1;
+        text-align: center;
       }
 
       .menu-toggle {
@@ -227,11 +260,15 @@
         justify-content: center;
         width: 42px;
         height: 42px;
+        margin-left: auto;
+        flex-shrink: 0;
         border: 1px solid #555047;
         background: transparent;
         color: var(--accent);
         font-size: 23px;
         cursor: pointer;
+        position: relative;
+        z-index: 21;
       }
 
       nav {
@@ -256,6 +293,8 @@
         font-size: 12px;
         letter-spacing: 2px;
       }
+
+      /* MOBILE ABOUT */
 
       .about {
         display: flex;
@@ -310,18 +349,34 @@
       .next {
         padding: 75px 7%;
       }
+
+      .next .button {
+        margin: 7px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
-    <a href="index.html" class="logo">ATILLA YURTTAŞ</a>
+
+    <a href="index.html" class="logo">
+      ATİLLA YURTTAŞ
+    </a>
 
     <button
       class="menu-toggle"
       id="menu-toggle"
+      type="button"
       aria-label="Open navigation"
       aria-expanded="false"
       aria-controls="main-nav"
@@ -331,24 +386,29 @@
       <a href="index.html">HOME</a>
       <a href="index.html#photography">PHOTOGRAPHY</a>
       <a href="about.html" class="active" aria-current="page">ABOUT</a>
-      <a href="index.html#guiding">GUIDING</a>
-      <a href="index.html#contact">CONTACT</a>
+      <a href="contact.html">CONTACT</a>
     </nav>
+
   </header>
 
   <main>
 
+    <!-- ABOUT -->
+
     <section class="about">
 
       <div class="portrait">
+
         <img
           src="images/IMG_6817.JPG"
           alt="Black and white portrait of Atilla Yurttaş with dramatic side lighting"
           fetchpriority="high"
         >
+
       </div>
 
       <div class="story">
+
         <div class="eyebrow">Behind the Lens</div>
 
         <h1>About<br>Me.</h1>
@@ -358,8 +418,8 @@
         </div>
 
         <p>
-          I'm Atilla Yurttaş, a photographer and professional
-          tour guide based in Selçuk, Türkiye.
+          I'm Atilla Yurttaş, a photographer based
+          in Selçuk, Türkiye.
         </p>
 
         <p>
@@ -370,12 +430,12 @@
         </p>
 
         <p>
-          For years, my work as a tour guide has taken me
-          across Türkiye, through ancient cities, quiet
-          villages, crowded streets and extraordinary
-          landscapes. Along the way, I discovered that
-          the most meaningful stories are often found
-          in the smallest, most ordinary moments.
+          Over the years, I have photographed ancient
+          cities, quiet villages, crowded streets and
+          the rhythms of everyday life. Along the way,
+          I discovered that the most meaningful stories
+          are often found in the smallest, most ordinary
+          moments.
         </p>
 
         <p>
@@ -392,16 +452,23 @@
         </p>
 
         <div class="signature">Atilla Yurttaş</div>
+
       </div>
 
     </section>
 
+    <!-- PHOTOGRAPHY PHILOSOPHY -->
+
     <section class="philosophy">
+
       <div class="philosophy-inner">
+
         <div class="eyebrow">My Perspective</div>
 
-        <h2>Every place has a story.<br>
-        Every face holds a world.</h2>
+        <h2>
+          Every place has a story.<br>
+          Every face holds a world.
+        </h2>
 
         <p>
           I believe photography is not simply about
@@ -410,10 +477,15 @@
           the emotion and the connections that
           might otherwise pass unseen.
         </p>
+
       </div>
+
     </section>
 
+    <!-- EXPLORE MY WORK -->
+
     <section class="next">
+
       <div class="eyebrow">Explore My Work</div>
 
       <h2>Stories Through the Lens.</h2>
@@ -427,16 +499,23 @@
         Explore Monochrome
       </a>
 
-      <a href="chromatic.html" class="button" style="margin: 8px;">
+      <a href="chromatic.html" class="button">
         Explore Chromatic
       </a>
+
     </section>
 
   </main>
 
-  <footer id="contact">
-    <p>© 2026 Atilla Yurttaş · Photographer & Tour Guide</p>
+  <!-- FOOTER -->
+
+  <footer>
+    <p>
+      © 2026 Atilla Yurttaş · Photography & Visual Stories
+    </p>
   </footer>
+
+  <!-- MOBILE MENU -->
 
   <script>
     const menuButton = document.getElementById("menu-toggle");
@@ -445,7 +524,11 @@
     menuButton.addEventListener("click", () => {
       const isOpen = navigation.classList.toggle("open");
 
-      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
       menuButton.setAttribute(
         "aria-label",
         isOpen ? "Close navigation" : "Open navigation"
@@ -457,8 +540,17 @@
     navigation.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navigation.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Open navigation");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          "Open navigation"
+        );
+
         menuButton.textContent = "☰";
       });
     });
