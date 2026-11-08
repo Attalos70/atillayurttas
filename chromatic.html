@@ -5,11 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090909">
-  <title>Chromatic — Atilla Yurttaş</title>
-  <meta name="description" content="Chromatic — A color photography collection by Atilla Yurttaş.">
+
+  <title>Chromatic — Atilla Yurttaş Photography</title>
+
+  <meta
+    name="description"
+    content="Chromatic — a color photography collection by Atilla Yurttaş. Stories of life, atmosphere and emotion expressed through color.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap"
+    rel="stylesheet">
+
   <style>
     :root {
       --bg: #090909;
@@ -17,8 +26,15 @@
       --muted: #a49c91;
       --accent: #bba17a;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: var(--bg);
@@ -26,8 +42,22 @@
       font-family: "DM Sans", sans-serif;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* HEADER */
+
     header {
       display: flex;
       justify-content: space-between;
@@ -35,11 +65,13 @@
       padding: 29px 6%;
       border-bottom: 1px solid #242424;
     }
+
     .brand {
       font-family: "Playfair Display", serif;
       font-size: 21px;
       letter-spacing: .025em;
     }
+
     .nav {
       display: flex;
       align-items: center;
@@ -48,38 +80,65 @@
       letter-spacing: .17em;
       text-transform: uppercase;
     }
-    .nav a { color: var(--muted); transition: color .2s; }
-    .nav a:hover, .nav a.active { color: var(--text); }
+
+    .nav a {
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+    }
+
+    /* COLLECTION INTRO */
+
     .intro {
       text-align: center;
       padding: 112px 24px 100px;
     }
+
     .eyebrow {
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: .3em;
       font-size: 10px;
     }
+
     h1 {
       font-family: "Playfair Display", serif;
       font-weight: 400;
       font-size: clamp(64px, 10vw, 132px);
       line-height: 1.1;
-      margin: 20px 0;
+      margin: 20px 0 16px;
     }
+
     .intro p {
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.9;
-      max-width: 450px;
+      font-family: "Playfair Display", serif;
+      font-size: 17px;
+      font-style: italic;
+      line-height: 1.7;
+      max-width: 470px;
       margin: 0 auto;
     }
+
     .count {
       margin-top: 32px;
       font-size: 10px;
       letter-spacing: .2em;
       color: var(--accent);
     }
+
+    .scroll-hint {
+      margin-top: 64px;
+      color: #77736d;
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    /* GALLERY */
+
     .gallery {
       width: min(1380px, 88%);
       margin: 0 auto;
@@ -88,7 +147,12 @@
       gap: 95px 54px;
       align-items: start;
     }
-    figure { margin: 0; min-width: 0; }
+
+    figure {
+      margin: 0;
+      min-width: 0;
+    }
+
     figure img {
       width: 100%;
       height: auto;
@@ -96,19 +160,28 @@
       cursor: zoom-in;
       transition: opacity .25s ease;
     }
-    figure img:hover { opacity: .88; }
+
+    figure img:hover {
+      opacity: .88;
+    }
+
     figure.wide {
       grid-column: 1 / -1;
       width: 100%;
       max-width: 1150px;
       justify-self: center;
     }
+
     figure.portrait-feature {
       grid-column: 1 / -1;
       width: min(100%, 680px);
       justify-self: center;
     }
-    figure.offset { margin-top: 95px; }
+
+    figure.offset {
+      margin-top: 95px;
+    }
+
     figcaption {
       display: flex;
       justify-content: space-between;
@@ -118,17 +191,25 @@
       font-size: 11px;
       letter-spacing: .08em;
     }
-    figcaption span:last-child { color: #6d675f; }
+
+    figcaption span:last-child {
+      color: #6d675f;
+    }
+
+    /* CLOSING */
+
     .closing {
       padding: 145px 24px 110px;
       text-align: center;
     }
+
     .closing p {
       font-family: "Playfair Display", serif;
       font-size: clamp(25px, 4vw, 45px);
       font-style: italic;
       color: var(--muted);
     }
+
     .closing a {
       display: inline-block;
       margin-top: 28px;
@@ -137,6 +218,7 @@
       letter-spacing: .18em;
       text-transform: uppercase;
     }
+
     footer {
       border-top: 1px solid #242424;
       padding: 28px 6%;
@@ -146,29 +228,40 @@
       color: var(--muted);
       font-size: 11px;
     }
+
+    /* LIGHTBOX */
+
     .lightbox {
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(0,0,0,.97);
+      background: rgba(0, 0, 0, .97);
       display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 55px 22px 65px;
+      padding: 55px 60px 65px;
     }
-    .lightbox.open { display: flex; }
+
+    .lightbox.open {
+      display: flex;
+    }
+
     .lightbox img {
       max-width: 100%;
       max-height: 82vh;
+      width: auto;
+      height: auto;
       object-fit: contain;
     }
+
     .lightbox-title {
       color: var(--muted);
       font-size: 12px;
       margin-top: 20px;
       text-align: center;
     }
+
     .lightbox button {
       position: absolute;
       background: transparent;
@@ -176,176 +269,384 @@
       color: white;
       cursor: pointer;
     }
+
     .close {
       top: 20px;
       right: 25px;
       font-size: 30px;
     }
-    .prev, .next {
+
+    .prev,
+    .next {
       top: 50%;
       transform: translateY(-50%);
       font-size: 35px;
       padding: 15px;
     }
-    .prev { left: 12px; }
-    .next { right: 12px; }
+
+    .prev {
+      left: 12px;
+    }
+
+    .next {
+      right: 12px;
+    }
+
+    .lightbox button:focus-visible {
+      outline: 1px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    /* MOBILE */
+
     @media (max-width: 700px) {
-      header { padding: 23px 6%; }
-      .brand { font-size: 17px; }
-      .nav { gap: 14px; font-size: 9px; }
-      .intro { padding: 83px 20px 75px; }
+      header {
+        padding: 23px 6%;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
+      .nav {
+        gap: 14px;
+        font-size: 9px;
+      }
+
+      .intro {
+        padding: 83px 20px 75px;
+      }
+
+      h1 {
+        font-size: clamp(52px, 12vw, 76px);
+      }
+
+      .intro p {
+        font-size: 15px;
+      }
+
+      .scroll-hint {
+        margin-top: 45px;
+      }
+
       .gallery {
         width: 90%;
         grid-template-columns: 1fr;
         gap: 58px;
       }
-      figure.wide, figure.portrait-feature {
+
+      figure.wide,
+      figure.portrait-feature {
         grid-column: auto;
         width: 100%;
       }
-      figure.offset { margin-top: 0; }
-      figcaption { font-size: 10px; }
-      .closing { padding: 100px 20px 75px; }
-      footer { flex-direction: column; text-align: center; }
-      .prev { left: 0; }
-      .next { right: 0; }
+
+      figure.offset {
+        margin-top: 0;
+      }
+
+      figcaption {
+        font-size: 10px;
+      }
+
+      .closing {
+        padding: 100px 20px 75px;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .lightbox {
+        padding: 55px 14px 90px;
+      }
+
+      .lightbox img {
+        max-height: 70vh;
+      }
+
+      .prev,
+      .next {
+        top: auto;
+        bottom: 12px;
+        transform: none;
+      }
+
+      .prev {
+        left: 0;
+      }
+
+      .next {
+        right: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      figure img {
+        transition: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <a class="brand" href="index.html">Atilla Yurttaş</a>
-  <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="monochrome.html">Monochrome</a>
-    <a href="chromatic.html" class="active">Chromatic</a>
-  </nav>
-</header>
+  <header>
+    <a class="brand" href="index.html">Atilla Yurttaş</a>
 
-<section class="intro">
-  <div class="eyebrow">Photography / Collection II</div>
-  <h1>Chromatic</h1>
-  <p>A visual journey through color, light, people and places. Stories told in the language of color.</p>
-  <div class="count">26 PHOTOGRAPHS</div>
-</section>
+    <nav class="nav" aria-label="Collection navigation">
+      <a href="index.html">Home</a>
+      <a href="monochrome.html">Monochrome</a>
+      <a href="chromatic.html" class="active" aria-current="page">
+        Chromatic
+      </a>
+    </nav>
+  </header>
 
-<main class="gallery" id="gallery"></main>
+  <section class="intro">
+    <div class="eyebrow">Photography / Collection 02</div>
 
-<section class="closing">
-  <p>Every color holds a story.</p>
-  <a href="monochrome.html">Explore Monochrome &rarr;</a>
-</section>
+    <h1>Chromatic</h1>
 
-<footer>
-  <span>&copy; <span id="year"></span> Atilla Yurttaş</span>
-  <span>Photography &amp; Visual Stories</span>
-</footer>
+    <p>
+      Fragments of life, atmosphere, and emotion expressed through color.
+    </p>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="close" id="close" aria-label="Close">&times;</button>
-  <button class="prev" id="prev" aria-label="Previous">&#8249;</button>
-  <img id="lightboxImage" alt="">
-  <div class="lightbox-title" id="lightboxTitle"></div>
-  <button class="next" id="next" aria-label="Next">&#8250;</button>
-</div>
+    <div class="count" id="collection-count">
+      25 PHOTOGRAPHS
+    </div>
 
-<script>
-  const photos = [
-    { file: "the-weight-of-years.jpg", type: "portrait-feature" },
-    { file: "a-life-in-lines.JPG" },
-    { file: "the-quiet-gaze.JPG", type: "offset" },
-    { file: "streets-of-childhood.jpg" },
-    { file: "a-moment-of-joy.jpg" },
-    { file: "colors-of-the-sky.jpg", type: "wide" },
-    { file: "before-the-flight.JPG" },
-    { file: "the-work-behind-the-wonder.JPG", type: "offset" },
-    { file: "beneath-the-storm.JPG", type: "portrait-feature" },
-    { file: "the-last-light-of-venice.jpg" },
-    { file: "blue-reflections.jpg" },
-    { file: "a-sky-full-of-dreams.jpg", type: "wide" },
-    { file: "between-two-worlds.JPG" },
-    { file: "behind-the-veil.jpg", type: "offset" },
-    { file: "roots-of-life.JPG" },
-    { file: "the-red-corner.jpg" },
-    { file: "after-dark.JPG", type: "portrait-feature" },
-    { file: "at-the-threshold.jpg" },
-    { file: "written-in-time.jpg", type: "offset" },
-    { file: "echoes-of-eternity.jpg" },
-    { file: "where-the-light-lingers.jpg" },
-    { file: "before-the-ascent.jpg", type: "wide" },
-    { file: "the-face-of-time.jpg" },
-    { file: "the-last-light.jpg", type: "offset" },
-    { file: "into-the-morning.JPG" },
-    
-  ];
+    <div class="scroll-hint">SCROLL TO EXPLORE ↓</div>
+  </section>
 
-  const gallery = document.getElementById("gallery");
-  const viewer = document.getElementById("lightbox");
-  const viewerImage = document.getElementById("lightboxImage");
-  const viewerTitle = document.getElementById("lightboxTitle");
-  let current = 0;
+  <main
+    class="gallery"
+    id="gallery"
+    aria-label="Chromatic photography exhibition">
+  </main>
 
-  function titleFromFile(file) {
-    return file.replace(/\.[^.]+$/, "")
-      .split("-")
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  }
+  <section class="closing">
+    <p>Every color holds a story.</p>
+    <a href="monochrome.html">Explore Monochrome &rarr;</a>
+  </section>
 
-  photos.forEach((photo, index) => {
-    const figure = document.createElement("figure");
-    if (photo.type) figure.classList.add(photo.type);
+  <footer>
+    <span>&copy; <span id="year"></span> Atilla Yurttaş</span>
+    <span>Photography &amp; Visual Stories</span>
+  </footer>
 
-    const img = document.createElement("img");
-    img.src = "images/chromatic/" + photo.file;
-    img.alt = titleFromFile(photo.file);
-    img.loading = index < 2 ? "eager" : "lazy";
-    img.addEventListener("click", () => openViewer(index));
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Photo viewer"
+    aria-hidden="true">
 
-    const caption = document.createElement("figcaption");
-    const title = document.createElement("span");
-    title.textContent = titleFromFile(photo.file);
-    const number = document.createElement("span");
-    number.textContent = String(index + 1).padStart(2, "0") + " / " + photos.length;
+    <button
+      class="close"
+      id="close"
+      aria-label="Close">&times;</button>
 
-    caption.append(title, number);
-    figure.append(img, caption);
-    gallery.appendChild(figure);
-  });
+    <button
+      class="prev"
+      id="prev"
+      aria-label="Previous">&#8249;</button>
 
-  function openViewer(index) {
-    current = (index + photos.length) % photos.length;
-    const photo = photos[current];
-    viewerImage.src = "images/chromatic/" + photo.file;
-    viewerImage.alt = titleFromFile(photo.file);
-    viewerTitle.textContent = titleFromFile(photo.file) + " — " +
-      String(current + 1).padStart(2, "0") + " / " + photos.length;
-    viewer.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
+    <img id="lightboxImage" alt="">
 
-  function closeViewer() {
-    viewer.classList.remove("open");
-    document.body.style.overflow = "";
-  }
+    <div class="lightbox-title" id="lightboxTitle"></div>
 
-  document.getElementById("close").addEventListener("click", closeViewer);
-  document.getElementById("prev").addEventListener("click", () => openViewer(current - 1));
-  document.getElementById("next").addEventListener("click", () => openViewer(current + 1));
+    <button
+      class="next"
+      id="next"
+      aria-label="Next">&#8250;</button>
+  </div>
 
-  viewer.addEventListener("click", event => {
-    if (event.target === viewer) closeViewer();
-  });
+  <script>
+    "use strict";
 
-  document.addEventListener("keydown", event => {
-    if (!viewer.classList.contains("open")) return;
-    if (event.key === "Escape") closeViewer();
-    if (event.key === "ArrowLeft") openViewer(current - 1);
-    if (event.key === "ArrowRight") openViewer(current + 1);
-  });
+    const photos = [
+      { file: "the-weight-of-years.jpg", type: "portrait-feature" },
+      { file: "a-life-in-lines.JPG" },
+      { file: "the-quiet-gaze.JPG", type: "offset" },
+      { file: "streets-of-childhood.jpg" },
+      { file: "a-moment-of-joy.jpg" },
+      { file: "colors-of-the-sky.jpg", type: "wide" },
+      { file: "before-the-flight.JPG" },
+      { file: "the-work-behind-the-wonder.JPG", type: "offset" },
+      { file: "beneath-the-storm.JPG", type: "portrait-feature" },
+      { file: "the-last-light-of-venice.jpg" },
+      { file: "blue-reflections.jpg" },
+      { file: "a-sky-full-of-dreams.jpg", type: "wide" },
+      { file: "between-two-worlds.JPG" },
+      { file: "behind-the-veil.jpg", type: "offset" },
+      { file: "roots-of-life.JPG" },
+      { file: "the-red-corner.jpg" },
+      { file: "after-dark.JPG", type: "portrait-feature" },
+      { file: "at-the-threshold.jpg" },
+      { file: "written-in-time.jpg", type: "offset" },
+      { file: "echoes-of-eternity.jpg" },
+      { file: "where-the-light-lingers.jpg" },
+      { file: "before-the-ascent.jpg", type: "wide" },
+      { file: "the-face-of-time.jpg" },
+      { file: "the-last-light.jpg", type: "offset" },
+      { file: "into-the-morning.JPG" }
+    ];
 
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    const gallery = document.getElementById("gallery");
+    const viewer = document.getElementById("lightbox");
+    const viewerImage = document.getElementById("lightboxImage");
+    const viewerTitle = document.getElementById("lightboxTitle");
+    const closeButton = document.getElementById("close");
+
+    let current = 0;
+    let previousFocus = null;
+
+    function titleFromFile(file) {
+      return file
+        .replace(/\.[^.]+$/, "")
+        .split("-")
+        .map(word =>
+          word.charAt(0).toUpperCase() + word.slice(1)
+        )
+        .join(" ");
+    }
+
+    function photoUrl(photo) {
+      return "images/chromatic/" + encodeURIComponent(photo.file);
+    }
+
+    photos.forEach((photo, index) => {
+      const figure = document.createElement("figure");
+
+      if (photo.type) {
+        figure.classList.add(photo.type);
+      }
+
+      const img = document.createElement("img");
+
+      img.src = photoUrl(photo);
+      img.alt = titleFromFile(photo.file);
+      img.loading = index < 2 ? "eager" : "lazy";
+      img.decoding = "async";
+      img.tabIndex = 0;
+      img.setAttribute("role", "button");
+      img.setAttribute(
+        "aria-label",
+        "View " + titleFromFile(photo.file) + " fullscreen"
+      );
+
+      img.addEventListener("click", () => openViewer(index));
+
+      img.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openViewer(index);
+        }
+      });
+
+      const caption = document.createElement("figcaption");
+
+      const title = document.createElement("span");
+      title.textContent = titleFromFile(photo.file);
+
+      const number = document.createElement("span");
+      number.textContent =
+        String(index + 1).padStart(2, "0") +
+        " / " +
+        photos.length;
+
+      caption.append(title, number);
+      figure.append(img, caption);
+
+      gallery.appendChild(figure);
+    });
+
+    function openViewer(index) {
+      previousFocus = document.activeElement;
+      showPhoto(index);
+
+      viewer.classList.add("open");
+      viewer.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lightbox-open");
+
+      closeButton.focus();
+    }
+
+    function showPhoto(index) {
+      current = (index + photos.length) % photos.length;
+
+      const photo = photos[current];
+
+      viewerImage.src = photoUrl(photo);
+      viewerImage.alt = titleFromFile(photo.file);
+
+      viewerTitle.textContent =
+        titleFromFile(photo.file) +
+        " — " +
+        String(current + 1).padStart(2, "0") +
+        " / " +
+        photos.length;
+    }
+
+    function closeViewer() {
+      viewer.classList.remove("open");
+      viewer.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-open");
+
+      if (previousFocus && previousFocus.focus) {
+        previousFocus.focus();
+      }
+    }
+
+    document
+      .getElementById("close")
+      .addEventListener("click", closeViewer);
+
+    document
+      .getElementById("prev")
+      .addEventListener("click", () => showPhoto(current - 1));
+
+    document
+      .getElementById("next")
+      .addEventListener("click", () => showPhoto(current + 1));
+
+    viewer.addEventListener("click", event => {
+      if (event.target === viewer) {
+        closeViewer();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (!viewer.classList.contains("open")) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        closeViewer();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showPhoto(current - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        showPhoto(current + 1);
+      }
+    });
+
+    document.getElementById("collection-count").textContent =
+      photos.length + " PHOTOGRAPHS";
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
