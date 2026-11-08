@@ -17,13 +17,9 @@
       --line: #34312e;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -33,17 +29,13 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body.lightbox-open {
-      overflow: hidden;
-    }
+    body.lightbox-open { overflow: hidden; }
 
     button, a {
       -webkit-tap-highlight-color: transparent;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     /* HEADER */
 
@@ -84,7 +76,7 @@
       color: var(--paper);
     }
 
-    /* INTRO */
+    /* COLLECTION INTRO */
 
     .intro {
       padding: 105px 20px 115px;
@@ -109,10 +101,20 @@
     }
 
     .intro-subtitle {
+      max-width: 470px;
+      margin: 0 auto;
       color: var(--muted);
       font-family: Georgia, serif;
       font-size: 17px;
       font-style: italic;
+      line-height: 1.7;
+    }
+
+    .collection-count {
+      margin-top: 32px;
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 2px;
     }
 
     .scroll-hint {
@@ -350,13 +352,8 @@
       font-size: 42px;
     }
 
-    .lightbox-prev {
-      left: 15px;
-    }
-
-    .lightbox-next {
-      right: 15px;
-    }
+    .lightbox-prev { left: 15px; }
+    .lightbox-next { right: 15px; }
 
     .lightbox button:focus-visible {
       outline: 1px solid var(--gold);
@@ -468,23 +465,13 @@
         font-size: 36px;
       }
 
-      .lightbox-prev {
-        left: 20px;
-      }
-
-      .lightbox-next {
-        right: 20px;
-      }
+      .lightbox-prev { left: 20px; }
+      .lightbox-next { right: 20px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .artwork-image {
-        transition: none;
-      }
+      html { scroll-behavior: auto; }
+      .artwork-image { transition: none; }
     }
   </style>
 </head>
@@ -493,6 +480,7 @@
 
   <header class="site-header">
     <a href="index.html" class="brand">ATILLA YURTTAŞ</a>
+
     <nav class="collection-nav" aria-label="Collection navigation">
       <a href="index.html">HOME</a>
       <a href="monochrome.html" aria-current="page">MONOCHROME</a>
@@ -502,8 +490,17 @@
 
   <section class="intro">
     <div class="eyebrow">Photography / Collection 01</div>
+
     <h1>Monochrome.</h1>
-    <div class="intro-subtitle">Light. Humanity. Silence.</div>
+
+    <p class="intro-subtitle">
+      Stories shaped by light, shadow, and the quiet presence of human life.
+    </p>
+
+    <div class="collection-count" id="collection-count">
+      16 PHOTOGRAPHS
+    </div>
+
     <div class="scroll-hint">SCROLL TO EXPLORE ↓</div>
   </section>
 
@@ -546,8 +543,15 @@
       id="lightbox-image"
       alt="">
 
-    <div class="lightbox-caption" id="lightbox-caption"></div>
-    <div class="lightbox-counter" id="lightbox-counter"></div>
+    <div
+      class="lightbox-caption"
+      id="lightbox-caption">
+    </div>
+
+    <div
+      class="lightbox-counter"
+      id="lightbox-counter">
+    </div>
 
     <button
       class="lightbox-next"
@@ -822,6 +826,9 @@
         closeLightbox();
       }
     });
+
+    document.getElementById("collection-count").textContent =
+      photos.length + " PHOTOGRAPHS";
 
     buildExhibition();
   </script>
