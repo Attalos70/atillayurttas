@@ -64,14 +64,23 @@
       text-decoration: none;
     }
 
-    .back {
-      color: var(--gold);
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-decoration: none;
+    .collection-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 30px;
     }
 
-    .back:hover {
+    .collection-nav a {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: color .25s ease;
+    }
+
+    .collection-nav a:hover,
+    .collection-nav a[aria-current="page"] {
       color: var(--paper);
     }
 
@@ -365,8 +374,14 @@
         letter-spacing: 1.4px;
       }
 
-      .back {
-        font-size: 10px;
+      .collection-nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .collection-nav a {
+        font-size: 9px;
         letter-spacing: .5px;
       }
 
@@ -478,7 +493,11 @@
 
   <header class="site-header">
     <a href="index.html" class="brand">ATILLA YURTTAŞ</a>
-    <a href="index.html" class="back">← BACK TO HOME</a>
+    <nav class="collection-nav" aria-label="Collection navigation">
+      <a href="index.html">HOME</a>
+      <a href="monochrome.html" aria-current="page">MONOCHROME</a>
+      <a href="chromatic.html">CHROMATIC</a>
+    </nav>
   </header>
 
   <section class="intro">
